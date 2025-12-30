@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dr John Oosthuizen's Academic Portfolio</title>
   <link rel="stylesheet" href="/css/styles.css">
-  <script src="/js/pagethruPDF.js"></script>
+  <script src="/js/pdf-reader.js"></script>
 </head>
 
 <body>
@@ -13,11 +13,11 @@
 <header id="top" class="site-header">
   <table style="border: none; margin: 0 auto; border-collapse: separate;">
     <tr>
-      <td><img src="/assets/logo.png" alt="Logo" class="logo"></td>
-      <td style="width: 20px;"></td>
-      <td> <!-- This is the cell with the 2 title lines -->  
-        <h3 style="margin-top: 0; margin-bottom: 2px; text-align: left;">Dr John Oosthuizen</h3>
-        <h1 style="margin-top: 0; text-align: left;">Academic Portfolio</h1>
+      <td><img src="/assets/logo.png" alt="Logo" class="logo"></td> <!-- col 1 = logo -->
+      <td style="width: 20px;"></td>                                <!-- col2 = spacer -->
+      <td>                                <!-- This is the col with the 2 title lines -->  
+        <h3 style="margin-top: 0; margin-bottom: 2px; text-align: left; padding-bottom: 0;">Dr John Oosthuizen</h3>
+        <h1 style="margin-top: 0; text-align: left; padding-top: 0;">Academic Portfolio</h1>
       </td>
     </tr>
   </table>
@@ -66,8 +66,6 @@
         <div id="documentPages">
             <!-- Individual pages go here -->
             <div class="document-page active">Page 1: Content...</div>
-            <div class="document-page">Page 2: Content...</div>
-            <div class="document-page">Page 3: Content...</div>
         </div>
         <!-- Navigation Controls -->
         <div class="nav-controls">
