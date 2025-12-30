@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Environment variables / secrets
+.env
+
+# Build outputs (Eleventy defaults)
+_site/
+dist/
+public/
+
+# Logs and temporary files
+npm-debug.log*
+*.log
+.DS_Store
