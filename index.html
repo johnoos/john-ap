@@ -38,114 +38,127 @@
 
 <main>
 
-  <!-- PhD certificate preview -------------------------------------------------->
-
-  <section class="container">
-    <h2>PhD certificate</h2>
-
-    <a href="/resources/certificates/phd-eng.pdf" target="_blank">
-      <object
-        data="/resources/certificates/phd-eng.pdf#page=1"
-        type="application/pdf"
-        class="doc-preview">
-        <p>
-          PDF preview not supported.
-          <a href="/resources/certificates/phd-eng.pdf">View or download</a>.
-        </p>
-      </object>
-    </a>
-
-    <p class="doc-actions">
-      <button onclick="openFullView()">Full View</button>|
-      <a href="/resources/certificates/phd-eng.pdf" download>Download</a>
-    </p>
-  </section>
-
-  <!-- Masters certificate preview ------------------------------------------------->
-
-   <section class="container">
-    <h2>Masters certificate</h2>
-
-    <a href="/resources/certificates/masters-eng.pdf" target="_blank">
-      <object
-        data="/resources/certificates/masters-eng.pdf#page=1"
-        type="application/pdf"
-        class="doc-preview">
-        <p>
-          PDF preview not supported.
-          <a href="/resources/certificates/masters-eng.pdf">View or download</a>.
-        </p>
-      </object>
-    </a>
-
-    <p class="doc-actions">
-      <button onclick="openFullView()">Full View</button>|
-      <a href="/resources/certificates/masters-eng.pdf" download>Download</a>
-    </p>
-  </section>
-
-  <!-- Honours certificate -------------------------------------------------------------->
-
-  <section class="container">
-    <h2>Honours certificate</h2>
-
-    <a href="/resources/certificates/honours-eng.pdf" target="_blank">
-      <object
-        data="/resources/certificates/honours-eng.pdf#page=1"
-        type="application/pdf"
-        class="doc-preview">
-        <p>
-          PDF preview not supported.
-          <a href="/resources/certificates/honours-eng.pdf">View or download</a>.
-        </p>
-      </object>
-    </a>
-
-    <p class="doc-actions">
-      <button onclick="openFullView()">Full View</button>|
-      <a href="/resources/certificates/honours-eng.pdf" download>Download</a>
-    </p>
-  </section>
-
-  <!-- BSc certificate -------------------------------------------------------------->
-
-  <section class="container">
-    <h2>Honours certificate</h2>
-
-    <a href="/resources/certificates/bsc-latin.pdf" target="_blank">
-      <object
-        data="/resources/certificates/bsc-latin.pdf#page=1"
-        type="application/pdf"
-        class="doc-preview">
-        <p>
-          PDF preview not supported.
-          <a href="/resources/certificates/bsc-latin.pdf">View or download</a>.
-        </p>
-      </object>
-    </a>
-
-    <p class="doc-actions">
-      <button onclick="openFullView()">Full View</button>|
-      <a href="/resources/certificates/bsc-latin.pdf" download>Download</a>
-    </p>
-  </section>
-
-<!-- Full View Modal -->
-<div id="fullViewModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeFullView()">&times;</span>
-        <div id="documentPages">
-            <!-- Individual pages go here -->
-            <div class="document-page active">Page 1: Content...</div>
-        </div>
-        <!-- Navigation Controls -->
-        <div class="nav-controls">
-            <button onclick="changePage(-1)">Previous</button>
-            <span id="pageIndicator">Page 1 of 3</span>
-            <button onclick="changePage(1)">Next</button>
-        </div>
+<!-- Main container for the 9-certificate gallery -->
+<section class="certificate-grid">
+  
+  <!-- Example Card (Repeat this block 9 times) -->
+  <article class="cert-card">
+    <div class="cert-preview">
+      <!-- PNG Preview Image (Page 1) -->
+      <img src="/resources/previews/phd-eng.png" alt="PhD certificate preview" loading="lazy">
     </div>
-</div>
+    <div class="cert-info">
+      <h3>PhD Engineering</h3>
+      <div class="cert-actions">
+        <!-- Opens original PDF in new tab -->
+        <a href="/resources/certificates/phd-eng.pdf" target="_blank" class="btn-view">View Full</a>
+        <!-- Downloads the original PDF -->
+        <a href="/resources/certificates/phd-eng.pdf" download class="btn-download">Download</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- masters cert preview -->
+  <article class="cert-card">
+    <div class="cert-preview">
+      <!-- PNG Preview Image (Page 1) -->
+      <img src="/resources/previews/masters-eng.png" alt="Masters certificate preview" loading="lazy">
+    </div>
+    <div class="cert-info">
+      <h3>PhD Engineering</h3>
+      <div class="cert-actions">
+        <!-- Opens original PDF in new tab -->
+        <a href="/resources/certificates/masters-eng.pdf" target="_blank" class="btn-view">View Full</a>
+        <!-- Downloads the original PDF -->
+        <a href="/resources/certificates/masters-eng.pdf" download class="btn-download">Download</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- honours cert preview -->
+  <article class="cert-card">
+    <div class="cert-preview">
+      <!-- PNG Preview Image (Page 1) -->
+      <img src="/resources/previews/honours-eng.png" alt="Honours certificate preview" loading="lazy">
+    </div>
+    <div class="cert-info">
+      <h3>PhD Engineering</h3>
+      <div class="cert-actions">
+        <!-- Opens original PDF in new tab -->
+        <a href="/resources/certificates/honours-eng.pdf" target="_blank" class="btn-view">View Full</a>
+        <!-- Downloads the original PDF -->
+        <a href="/resources/certificates/honours-eng.pdf" download class="btn-download">Download</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- BSc cert preview -->
+  <article class="cert-card">
+    <div class="cert-preview">
+      <!-- PNG Preview Image (Page 1) -->
+      <img src="/resources/previews/bsc-latin.png" alt="BSc certificate preview" loading="lazy">
+    </div>
+    <div class="cert-info">
+      <h3>PhD Engineering</h3>
+      <div class="cert-actions">
+        <!-- Opens original PDF in new tab -->
+        <a href="/resources/certificates/bsc-latin.pdf" target="_blank" class="btn-view">View Full</a>
+        <!-- Downloads the original PDF -->
+        <a href="/resources/certificates/bsc-latin.pdf" download class="btn-download">Download</a>
+      </div>
+    </div>
+  </article>
+  
+  <!-- atcl piano cert preview -->
+  <article class="cert-card">
+    <div class="cert-preview">
+      <!-- PNG Preview Image (Page 1) -->
+      <img src="/resources/previews/atcl-piano-eng.png" alt="ATCL Piano certificate preview" loading="lazy">
+    </div>
+    <div class="cert-info">
+      <h3>PhD Engineering</h3>
+      <div class="cert-actions">
+        <!-- Opens original PDF in new tab -->
+        <a href="/resources/certificates/atcl-piano-eng.pdf" target="_blank" class="btn-view">View Full</a>
+        <!-- Downloads the original PDF -->
+        <a href="/resources/certificates/atcl-piano-eng.pdf" download class="btn-download">Download</a>
+      </div>
+    </div>
+  </article>
+  
+  <!-- tcl organ grade 8 cert preview -->
+  <article class="cert-card">
+    <div class="cert-preview">
+      <!-- PNG Preview Image (Page 1) -->
+      <img src="/resources/previews/tcl-grade8-organ-eng.png" alt="TCL Grade 8 Organ certificate preview" loading="lazy">
+    </div>
+    <div class="cert-info">
+      <h3>PhD Engineering</h3>
+      <div class="cert-actions">
+        <!-- Opens original PDF in new tab -->
+        <a href="/resources/certificates/tcl-grade8-organ-eng.pdf" target="_blank" class="btn-view">View Full</a>
+        <!-- Downloads the original PDF -->
+        <a href="/resources/certificates/tcl-grade8-organ-eng.pdf" download class="btn-download">Download</a>
+      </div>
+    </div>
+  </article>
+  
+  <!-- matric cert cert preview -->
+  <article class="cert-card">
+    <div class="cert-preview">
+      <!-- PNG Preview Image (Page 1) -->
+      <img src="/resources/previews/matric-eng.png" alt="Matric certificate preview" loading="lazy">
+    </div>
+    <div class="cert-info">
+      <h3>PhD Engineering</h3>
+      <div class="cert-actions">
+        <!-- Opens original PDF in new tab -->
+        <a href="/resources/certificates/matric-eng.pdf" target="_blank" class="btn-view">View Full</a>
+        <!-- Downloads the original PDF -->
+        <a href="/resources/certificates/matric-eng.pdf" download class="btn-download">Download</a>
+      </div>
+    </div>
+  
 
 </main>
 
