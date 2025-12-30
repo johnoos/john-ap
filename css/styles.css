@@ -13,7 +13,7 @@ body{margin:0;font-family:var(--body-font);background:var(--bg);color:var(--text
 .site-header{text-align:center;padding:3.2rem 1rem 2.2rem;color:white;
   background:linear-gradient(135deg,var(--aquamarine)0%,var(--navy)100%);
   position:relative}
-.logo{width:100px;margin:0 auto .8rem;display:block;border-radius:8px}
+.logo{width:110px;margin:0 auto .8rem;display:block;border-radius:8px}
 /* .site-title{margin:0;font-size:2rem;font-weight:700} */
 .site-tag{font-size:1rem;margin-top:.4rem;opacity:.95}
 
