@@ -4,173 +4,38 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dr John Oosthuizen's Academic Portfolio</title>
-  <link rel="stylesheet" href="/css/styles.css">
-  <script src="/js/pdf-reader.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+<!-- declare external scripts here or place inline before </body>-->
 </head>
 <body>
-  <!-- Shared elements -->
-  <div id="site-header-with-menu-container"></div>
-
-  <!-- Central container for dynamic pages -->
-  <main id="app-body">
-    <p>Loading...</p>
-  </main>
-  
-  <footer class="site-footer">
-  <div class="container">
-      <p style="text-align: center; margin-bottom: 0px;">© 2025 Dr John Oosthuizen. All rights reserved.</p>
-      <p style="text-align: center; margin-top: 2px;">30 December 2025</p>
-  </div>
-</footer>
-
-  <div id="site-footer"></div>
+  <div id="header-container"></div>
+  <main id="body-container"><p>Loading...</p></main>
+  <div id="footer-container"></div>
 
   <script>
-    // A reusable function to include HTML files
-    async function includeHTML(file, targetId) {
-      try {
-        const response = await fetch(file);
-        if (!response.ok) throw new Error(`Could not find ${file}`);
-          const content = await response.text();
-          document.getElementById(targetId).innerHTML = content;
-        } catch (error) {
-          console.error("Error loading HTML:", error);
+    // Core function to fetch any HTML file and inject it into a container
+        async function loadContent(url, containerId) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Failed to load ' + url);
+                const html = await response.text();
+                document.getElementById(containerId).innerHTML = html;
+            } catch (err) {
+                console.error(err);
+            }
         }
-    }
-    
-    // Call the function for each part you want to include
-    includeHTML('header-with-menu.html', 'header-with-menu-container');
-    includeHTML('footer.html', 'footer-container');
+
+        // Initial setup: Load common parts and default page
+        window.onload = () => {
+            loadContent('header-with-menu.html', 'header-container');
+            loadContent('footer.html', 'footer-container');
+            loadContent('body-pages/certificates.html', 'body-container');
+        };
+
+        // Navigation function used by your menu
+        function navigate(page) {
+            loadContent(`body-pages/${page}.html`, 'body-container');
+        }
   </script>  
 </body>
 </html>
-
-
-
-
-
-<!-- Main container for the 9-certificate gallery -->
-<section class="certificate-grid">
-  
-  <!-- Example Card (Repeat this block 9 times) -->
-  <article class="cert-card">
-    <div class="cert-preview">
-      <!-- PNG Preview Image (Page 1) -->
-      <img src="/resources/certificate-previews/phd-eng.png" alt="PhD certificate preview" loading="lazy">
-    </div>
-    <div class="cert-info">
-      <h3>PhD Music (2025)</h3>
-      <div class="cert-actions">
-        <!-- Opens original PDF in new tab -->
-        <a href="/resources/certificate-pdfs/phd-eng.pdf" target="_blank" class="btn-view">View Full</a>
-        <!-- Downloads the original PDF -->
-        <a href="/resources/certificate-pdfs/phd-eng.pdf" download class="btn-download">Download</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- masters cert preview -->
-  <article class="cert-card">
-    <div class="cert-preview">
-      <!-- PNG Preview Image (Page 1) -->
-      <img src="/resources/certificate-previews/masters-eng.png" alt="Masters certificate preview" loading="lazy">
-    </div>
-    <div class="cert-info">
-      <h3>MMus Music (2022)</h3>
-      <div class="cert-actions">
-        <!-- Opens original PDF in new tab -->
-        <a href="/resources/certificates/masters-eng.pdf" target="_blank" class="btn-view">View Full</a>
-        <!-- Downloads the original PDF -->
-        <a href="/resources/certificate-pdfs/masters-eng.pdf" download class="btn-download">Download</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- honours cert preview -->
-  <article class="cert-card">
-    <div class="cert-preview">
-      <!-- PNG Preview Image (Page 1) -->
-      <img src="/resources/certificate-previews/honours-eng.png" alt="Honours certificate preview" loading="lazy">
-    </div>
-    <div class="cert-info">
-      <h3>Honours Organ cum laude (2019)</h3>
-      <div class="cert-actions">
-        <!-- Opens original PDF in new tab -->
-        <a href="/resources/certificate-pdfs/honours-eng.pdf" target="_blank" class="btn-view">View Full</a>
-        <!-- Downloads the original PDF -->
-        <a href="/resources/certificate-pdfs/honours-eng.pdf" download class="btn-download">Download</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- BSc cert preview -->
-  <article class="cert-card">
-    <div class="cert-preview">
-      <!-- PNG Preview Image (Page 1) -->
-      <img src="/resources/certificate-previews/bsc-latin.png" alt="BSc certificate preview" loading="lazy">
-    </div>
-    <div class="cert-info">
-      <h3>BSc Math, Math Stat, Comp Sc (1978)</h3>
-      <div class="cert-actions">
-        <!-- Opens original PDF in new tab -->
-        <a href="/resources/certificate-pdfs/bsc-latin.pdf" target="_blank" class="btn-view">View Full</a>
-        <!-- Downloads the original PDF -->
-        <a href="/resources/certificate-pdfs/bsc-latin.pdf" download class="btn-download">Download</a>
-      </div>
-    </div>
-  </article>
-  
-  <!-- atcl piano cert preview -->
-  <article class="cert-card">
-    <div class="cert-preview">
-      <!-- PNG Preview Image (Page 1) -->
-      <img src="/resources/certificate-previews/atcl-piano-eng.png" alt="ATCL Piano certificate preview" loading="lazy">
-    </div>
-    <div class="cert-info">
-      <h3>ATCL Diploma in Piano (1975)</h3>
-      <div class="cert-actions">
-        <!-- Opens original PDF in new tab -->
-        <a href="/resources/certificate-pdfs/atcl-piano-eng.pdf" target="_blank" class="btn-view">View Full</a>
-        <!-- Downloads the original PDF -->
-        <a href="/resources/certificate-pdfs/atcl-piano-eng.pdf" download class="btn-download">Download</a>
-      </div>
-    </div>
-  </article>
-  
-  <!-- tcl organ grade 8 cert preview -->
-  <article class="cert-card">
-    <div class="cert-preview">
-      <!-- PNG Preview Image (Page 1) -->
-      <img src="/resources/certificate-previews/tcl-grade8-organ-eng.png" alt="TCL Grade 8 Organ certificate preview" loading="lazy">
-    </div>
-    <div class="cert-info">
-      <h3>Trinity College of London Organ Grade 8 with Merit (2020)</h3>
-      <div class="cert-actions">
-        <!-- Opens original PDF in new tab -->
-        <a href="/resources/certificate-pdfs/tcl-grade8-organ-eng.pdf" target="_blank" class="btn-view">View Full</a>
-        <!-- Downloads the original PDF -->
-        <a href="/resources/certificate-pdfs/tcl-grade8-organ-eng.pdf" download class="btn-download">Download</a>
-      </div>
-    </div>
-  </article>
-  
-  <!-- matric cert cert preview -->
-  <article class="cert-card">
-    <div class="cert-preview">
-      <!-- PNG Preview Image (Page 1) -->
-      <img src="/resources/certificate-previews/matric-eng.png" alt="Matric certificate preview" loading="lazy">
-    </div>
-    <div class="cert-info">
-      <h3>Matric Certificate with Merit (1972)</h3>
-      <div class="cert-actions">
-        <!-- Opens original PDF in new tab -->
-        <a href="/resources/certificates/matric-eng.pdf" target="_blank" class="btn-view">View Full</a>
-        <!-- Downloads the original PDF -->
-        <a href="/resources/certificates/matric-eng.pdf" download class="btn-download">Download</a>
-      </div>
-    </div>
-  </article>
-</section>
-
-</main>
-
