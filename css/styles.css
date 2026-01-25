@@ -9,6 +9,21 @@
 
 *{box-sizing:border-box}
 
+/* --- FLEX LAYOUT --- */
+.site-layout {
+  display: flex;
+  height: 100vh; /* Force layout to fill the screen height */
+  width: 100vw;
+}
+
+/* --- LOCK THE VIEWPORT --- */
+html, body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevents the whole page from scrolling */
+}
+
 body{margin:0;padding:0;font-family:var(--body-font);
   background:var(--bg);color:var(--text);
   line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -22,6 +37,14 @@ header {
     /* Add a specific height, e.g., height: 60px; */
 }
 
+/* --- 5. HEADER & FOOTER (STATIONARY) --- */
+/* Remove 'position: fixed' from these - Flexbox handles the 'stickiness' now */
+.header-style, .footer-style {
+  flex-shrink: 0; /* Prevents them from being squashed */
+  width: 100%;
+  margin: 0;
+}
+
 .header-style{text-align:center;padding:3.2rem 1rem 2.2rem;color:white;
   background:linear-gradient(135deg,var(--aquamarine)0%,var(--navy)100%);
   position:relative}
@@ -31,7 +54,6 @@ header {
 
 /* 1. Header & Footer: Full width and Fixed */
 header, footer {
-    position: fixed;
     left: 0;
     right: 0;
     width: 100%;
@@ -45,13 +67,21 @@ header, footer {
     text-align: center;
 }
 
-/* 3. Fixing the Sidebar under the header */
-.sidebar {
-    position: fixed;
-    top: 60px;       /* Must match header height */
-    bottom: 40px;    /* Must match footer height */
-    width: 200px;    /* Your sidebar width */
-    overflow-y: auto; /* Allows sidebar to scroll internally if items are too many */
+/* --- SIDEBAR (COLUMN 1) --- */
+#sidebar-container {
+  width: 260px;
+  height: 100vh;
+  flex-shrink: 0;
+  background: var(--navy);
+  overflow-y: auto; /* Sidebar scrolls independently if menu is long */
+  z-index: 10;
+}
+
+#body-container {
+  flex-grow: 1;      /* Fills the space between header and footer */
+  overflow-y: auto;  /* THIS IS THE ONLY PART THAT SCROLLS */
+  padding-bottom: 2rem;
+  background: var(--bg); /* Keeps the background consistent */
 }
 
 /* 4. Menu Item Styling (from previous request) */
@@ -150,7 +180,8 @@ nav ul li a { /* For the links inside the list items */
 }
 
 /* MAIN */
-main{max-width:900px;margin:1.6rem auto;padding:0 1rem 3rem}
+main{max-width:900px;margin: 0 auto;padding:0 1rem 3rem}
+
 main.content { /* Assuming 'main.content' is your main content selector */
     margin-top: 60px; /* Match the header's height */
     margin-bottom: 40px; /* Match the footer's height */
@@ -199,17 +230,13 @@ li {
   margin-bottom: 1.0rem;
 }
 
-.two-column {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-/* On small screens */
-@media (max-width: 600px) {
-  .two-column {
-    grid-template-columns: 1fr;
-  }
+/* --- CONTENT WRAPPER (COLUMN 2) --- */
+#column2 {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden; /* Important: keeps column from growing with content */
 }
 
 /* container grid for certificates */
@@ -314,13 +341,6 @@ li {
   padding-left: 8px;
 }
 
-
-/* Layout Container */
-.site-layout {
-  display: flex;
-  min-height: 100vh;
-}
-
 /* Sidebar Styling (Column 1) */
 #sidebar-container {
   width: 260px;       /* Fixed width for sidebar */
@@ -340,3 +360,5 @@ li {
   flex: 1 0 auto;     
   width: 100%;
 }
+
+
