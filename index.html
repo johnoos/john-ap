@@ -8,34 +8,101 @@
 <!-- declare external scripts here or place inline before </body>-->
 </head>
 <body>
-  <div id="header-container"></div>
-  <main id="body-container"><p>Loading...</p></main>
-  <div id="footer-container"></div>
+  <div class="site-layout"> <!-- Use Flexbox here -->
+    <aside id="sidebar-container"></aside> <!-- Persistent Sidebar -->
+    <div id="column2"></div>  
+        <div id="header-container" class="header-style"></div>
+        <main id="body-container"><p>Loading...</p></main>
+        <div id="footer-container" class="footer-style"></div>
+    </div>
 
-  <script>
-    // Core function to fetch any HTML file and inject it into a container
+    <script>
         async function loadContent(url, containerId) {
             try {
                 const response = await fetch(url);
                 if (!response.ok) throw new Error('Failed to load ' + url);
                 const html = await response.text();
                 document.getElementById(containerId).innerHTML = html;
-            } catch (err) {
-                console.error(err);
+            
+                // If we just loaded the sidebar, highlight the initial page
+                if(containerId === 'sidebar-container') {
+                    highlightLink('certificates');
+                } catch (err) {
+                    console.error(err);
+                }
             }
-        }
+        }          
 
-        // Initial setup: Load common parts and default page
         window.onload = () => {
-            loadContent('header-with-menu.html', 'header-container');
-            loadContent('footer.html', 'footer-container');
+            // Load sidebar instead of a top menu if preferred
+            loadContent('sidebar-menu.html', 'sidebar-container');
+            loadContent('header.html', 'header-container');
             loadContent('body-pages/certificates.html', 'body-container');
+            loadContent('footer.html', 'footer-container');
         };
 
-        // Navigation function used by your menu
         function navigate(page) {
             loadContent(`body-pages/${page}.html`, 'body-container');
+            highlightLink(page); // Update the highlight
+            window.scrollTo(0, 0); // Scroll to top when page changes
         }
-  </script>  
+
+        function highlightLink(pageName) {
+            // Remove 'active' from all links and add to the current one
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick').includes(pageName)) {
+                    link.classList.add('active');
+                }
+            });
+    }
+
+        // Core function to fetch any HTML file and inject it into a container
+            async function loadContent(url, containerId) {
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error('Failed to load ' + url);
+                    const html = await response.text();
+                    document.getElementById(containerId).innerHTML = html;
+                } catch (err) {
+                    console.error(err);
+                }
+            }
+
+            // Initial setup: Load common parts and default page
+            window.onload = () => {
+                loadContent('header.html', 'header-container');
+                loadContent('footer.html', 'footer-container');
+                loadContent('body-pages/certificates.html', 'body-container');
+            };
+
+            // Navigation function used by your menu
+            function navigate(page) {
+                loadContent(`body-pages/${page}.html`, 'body-container');
+            }
+
+            // Scrollspy functionality
+            window.addEventListener('scroll', () => {
+                let currentSection = "";
+                const sections = document.querySelectorAll("section");
+                const navLinks = document.querySelectorAll(".nav-link");
+
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop;
+                    // Offset (e.g., 60px) helps trigger highlight before section hits top
+                    if (pageYOffset >= sectionTop - 60) {
+                        currentSection = section.getAttribute("id");
+                    }
+                }); 
+
+                navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href").includes(currentSection)) {
+                        link.classList.add("active");
+                    }
+                });
+            });
+    </script>
+  </div>    
 </body>
 </html>
