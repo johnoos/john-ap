@@ -6,13 +6,25 @@
   --heading-font:'Calibri', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
   --body-font:   'Calibri', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
 *{box-sizing:border-box}
-body{margin:0;font-family:var(--body-font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+body{margin:0;padding:0;font-family:var(--body-font);
+  background:var(--bg);color:var(--text);
+  line-height:1.6;-webkit-font-smoothing:antialiased}
 
 /* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* Add a specific height, e.g., height: 60px; */
+}
+
 .header-style{text-align:center;padding:3.2rem 1rem 2.2rem;color:white;
   background:linear-gradient(135deg,var(--aquamarine)0%,var(--navy)100%);
   position:relative}
+
 .logo{width:110px;margin:0 auto .8rem;display:block;border-radius:8px}
 /* .site-title{margin:0;font-size:2rem;font-weight:700} */
 
@@ -29,6 +41,12 @@ body{margin:0;font-family:var(--body-font);background:var(--bg);color:var(--text
   font-size: 1.8rem;
   cursor: pointer;
   z-index: 1000;
+}
+
+aside.sidebar { /* Assuming 'aside.sidebar' is your sidebar selector */
+    position: fixed;
+    top: 60px; /* Match the header's height */
+    /* Set width, e.g., width: 250px; and a height calculation if needed, e.g., height: calc(100vh - 100px); */
 }
 
 /* Primary nav: desktop layout */
@@ -60,6 +78,16 @@ body{margin:0;font-family:var(--body-font);background:var(--bg);color:var(--text
     display: block; /* show hamburger */
   }
 
+  nav ul {
+    list-style-type: none; /* Removes bullets */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+nav ul li a { /* For the links inside the list items */
+    color: #ddd; /* A lighter color */
+}
+
   .nav-link {
     display: none; /* hide desktop nav */
     flex-direction: column;
@@ -87,6 +115,12 @@ body{margin:0;font-family:var(--body-font);background:var(--bg);color:var(--text
 
 /* MAIN */
 main{max-width:900px;margin:1.6rem auto;padding:0 1rem 3rem}
+main.content { /* Assuming 'main.content' is your main content selector */
+    margin-top: 60px; /* Match the header's height */
+    margin-bottom: 40px; /* Match the footer's height */
+    /* If the main content itself needs a specific scrollable area within the fixed layout: */
+    /* position: absolute; top: 60px; bottom: 40px; overflow-y: auto; */
+}
 .section{background:white;margin:1.4rem 0;padding:1.4rem;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.06);scroll-margin-top:120px}
 .section h2 {
   margin-top:0;
@@ -96,6 +130,12 @@ main{max-width:900px;margin:1.6rem auto;padding:0 1rem 3rem}
 }
 
 /* FOOTER */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* Add a specific height, e.g., height: 40px; */
+}
 .footer-style{text-align:center;padding:1.6rem;background:var(--navy);color:white;margin-top:2rem}
 
 /* RESPONSIVE */
