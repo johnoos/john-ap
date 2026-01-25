@@ -18,6 +18,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+    height: 60px; /* Example height */
     /* Add a specific height, e.g., height: 60px; */
 }
 
@@ -27,6 +28,41 @@ header {
 
 .logo{width:110px;margin:0 auto .8rem;display:block;border-radius:8px}
 /* .site-title{margin:0;font-size:2rem;font-weight:700} */
+
+/* 1. Header & Footer: Full width and Fixed */
+header, footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000; /* Keeps them above other content */
+}
+
+/* 2. Centering Header/Footer content in Column 2 */
+.header-content, .footer-content {
+    max-width: 800px; /* Match the width of your Column 2 */
+    margin: 0 auto;   /* Centers the content within the full-width bar */
+    text-align: center;
+}
+
+/* 3. Fixing the Sidebar under the header */
+.sidebar {
+    position: fixed;
+    top: 60px;       /* Must match header height */
+    bottom: 40px;    /* Must match footer height */
+    width: 200px;    /* Your sidebar width */
+    overflow-y: auto; /* Allows sidebar to scroll internally if items are too many */
+}
+
+/* 4. Menu Item Styling (from previous request) */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li a {
+    color: #d3d3d3; /* Lighter color */
+}
 
 /* NAV */
 /* Hamburger icon: hidden on desktop, shown on small screens */
@@ -121,7 +157,9 @@ main.content { /* Assuming 'main.content' is your main content selector */
     /* If the main content itself needs a specific scrollable area within the fixed layout: */
     /* position: absolute; top: 60px; bottom: 40px; overflow-y: auto; */
 }
-.section{background:white;margin:1.4rem 0;padding:1.4rem;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.06);scroll-margin-top:120px}
+.section{background:white;margin:1.4rem 0;padding:1.4rem;
+  border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.06);
+  scroll-margin-top:120px}
 .section h2 {
   margin-top:0;
   font-family:var(--heading-font);
@@ -134,8 +172,10 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    height: 40px; /* Example height */
     /* Add a specific height, e.g., height: 40px; */
 }
+
 .footer-style{text-align:center;padding:1.6rem;background:var(--navy);color:white;margin-top:2rem}
 
 /* RESPONSIVE */
