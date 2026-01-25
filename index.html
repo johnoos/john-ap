@@ -68,13 +68,6 @@
                 }
             }
 
-            // Initial setup: Load common parts and default page
-            window.onload = () => {
-                loadContent('header.html', 'header-container');
-                loadContent('footer.html', 'footer-container');
-                loadContent('body-pages/certificates.html', 'body-container');
-            };
-
             // Navigation function used by your menu
             function navigate(page) {
                 loadContent(`body-pages/${page}.html`, 'body-container');
