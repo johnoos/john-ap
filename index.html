@@ -25,13 +25,12 @@
                 document.getElementById(containerId).innerHTML = html;
             
                 // If we just loaded the sidebar, highlight the initial page
-                if(containerId === 'sidebar-container') {
+                if(containerId === 'sidebar-container')
                     highlightLink('certificates');
                 } catch (err) {
                     console.error(err);
                 }
-            }
-        }          
+            }          
 
         window.onload = () => {
             // Load sidebar instead of a top menu if preferred
