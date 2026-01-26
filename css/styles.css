@@ -25,6 +25,10 @@ html, body {
 }
 
 body {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Header, Content, Footer */
+  min-height: 100dvh;
+
   flex: 1; margin: 0; padding: 0; font-family: var(--body-font);
   background: var(--bg); color: var(--text);
   line-height: 1.6; -webkit-font-smoothing: antialiased; min-width: 0;
@@ -73,13 +77,14 @@ header, footer {
 /* --- SIDEBAR (COLUMN 1) --- */
 .sidebar-style {
   flex: 0 0 200px;
-  margin: 15px;             /* Push sidebar away from edges */
+  margin: 20px;             /* Push sidebar away from edges */
+  margin-top: 28;
   padding-left: 20px;       /* Keep internal content away from sidebar edge */
   background: #f4f4f4;
   border-radius: 12px;      /* Rounded corners from previous step */
-  font-size: 0.85rem;       /* Decreased font size */
+  font-size: 0.9rem;       /* Decreased font size */
   color: #000000;           /* From previous black text step */
-  border: 1px solid gray;   /* Changed from border-right to full border for floating look */
+  border: 1px solid rgb(15, 15, 15);   /* Changed from border-right to full border for floating look */
   overflow-y: auto;
 }
 
