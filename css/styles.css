@@ -78,11 +78,11 @@ header, footer {
   box-sizing: border-box;
   width: 200px;
   height: 100%;
-  overflow-y: auto; /* Sidebar scrolls independently if menu is long */
-  background: white;
-  color: black;
-  background: #f4f4f4;
-  border-right: 1px solid gray;
+  overflow-y: auto;
+  background: #f4f4f4; /* Light gray background */
+  color: #000000;      /* Force black text */
+  border-right: 1px solid rgb(48, 46, 46);
+  border-radius: 15px;
 }
 
 /* Removes bullets and default browser indentation */
@@ -90,7 +90,10 @@ header, footer {
   list-style-type: none; /* Removes the bullets */
   padding: 0;           /* Removes default left padding */
   margin: 0;            /* Ensures no extra outer spacing */
+  text-align: ;
 }
+
+a {text-decoration: none;}
 
 .body-style {
   flex: 1;      /* Fills the space between header and footer */
