@@ -36,7 +36,7 @@ body {
 
 .header-style, .footer-style {
   flex-shrink: 0; /* Prevents header/footer from being squashed */
-  height: 60px;   /* Or a fixed height like 60px */
+  height: 120px;   
 }
 
 .middle-wrapper {
