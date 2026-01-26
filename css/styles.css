@@ -24,9 +24,12 @@ html, body {
   height: 100%; /* Force layout to fill the screen height */
 }
 
-body{margin:0;padding:0;font-family:var(--body-font);
-  background:var(--bg);color:var(--text);
-  line-height:1.6;-webkit-font-smoothing:antialiased}
+body {
+  flex: 1; margin: 0; padding: 0; font-family: var(--body-font);
+  background: var(--bg); color: var(--text);
+  line-height: 1.6; -webkit-font-smoothing: antialiased; min-width: 0;
+  overflow-y: auto;
+}
 
 /* HEADER */
 header {
@@ -45,9 +48,12 @@ header {
   margin: 0;
 }
 
-.header-style{text-align:center;padding:3.2rem 1rem 2.2rem;color:white;
-  background:linear-gradient(135deg,var(--aquamarine)0%,var(--navy)100%);
-  position:relative}
+.header-style {
+  text-align: center; padding: 3.2rem 1rem 2.2rem; color: white;
+  background: linear-gradient(135deg,var(--aquamarine)0%,var(--navy)100%);
+  position: relative; margin-bottom: 20px; /* Adjust the spacing as needed */
+  flex-shrink: 0;      /* Ensures the header doesn't compress */
+}
 
 .logo{width:110px;margin:0 auto .8rem;display:block;border-radius:8px}
 /* .site-title{margin:0;font-size:2rem;font-weight:700} */
@@ -67,16 +73,35 @@ header, footer {
     text-align: center;
 }
 
-/* --- SIDEBAR (COLUMN 1) --- */
-#sidebar-style {
-  width: 200px;
-  height: 100%;
-  background: var(--navy);
-  overflow-y: auto; /* Sidebar scrolls independently if menu is long */
-  background: white;
+.middle-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  overflow: hidden;
+  align-items: stretch;
 }
 
-#body-style {
+/* --- SIDEBAR (COLUMN 1) --- */
+.sidebar-style {
+  flex: 0 0 200px;
+  flex-shrink: 0;
+  padding-left: 20px;
+  box-sizing: border-box;
+  width: 200px;
+  height: 100%;
+  overflow-y: auto; /* Sidebar scrolls independently if menu is long */
+  background: white;
+  color: black;
+}
+
+/* Removes bullets and default browser indentation */
+.sidebar ul {
+  list-style-type: none; /* Removes the bullets */
+  padding: 0;           /* Removes default left padding */
+  margin: 0;            /* Ensures no extra outer spacing */
+}
+
+.body-style {
   flex: 1;      /* Fills the space between header and footer */
   overflow-y: auto;  /* THIS IS THE ONLY PART THAT SCROLLS */
   padding-bottom: 2rem;
@@ -85,7 +110,14 @@ header, footer {
   min-width: 0; /* Prevents overflow issues */
 }
 
-#footer-style{text-align:center;padding:1.6rem;background:var(--navy);color:white;margin-top:2rem}
+.footer-style {
+  background: navy; /* Use a solid color to block the content behind it */
+  position: relative; /* z-index only works on positioned elements */
+  z-index: 10;
+  text-align:center;
+  padding:1.6rem;
+  margin-top:2rem;
+}
 
 /* 4. Menu Item Styling (from previous request) */
 nav ul {
@@ -330,7 +362,7 @@ li {
 
 
 /* Ensure the main body pushes the footer to the bottom */
-#body-container {
+.body-container {
   flex: 1 0 auto;     
   width: 100%;
 }
