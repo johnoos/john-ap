@@ -19,44 +19,67 @@
     </div>
 
     <script>
+        // 1. Define functions ONCE
         async function loadContent(url, containerId) {
             try {
                 const response = await fetch(url);
                 if (!response.ok) throw new Error('Failed to load ' + url);
                 const html = await response.text();
                 document.getElementById(containerId).innerHTML = html;
-            
-                // If we just loaded the sidebar, highlight the initial page
-                if(containerId === 'sidebar-container')
-                    highlightLink('certificates');
-                } catch (err) {
-                    console.error(err);
-                }
-            }          
 
+                // If we just loaded the sidebar, highlight the initial page
+                if (containerId === 'sidebar-container') {
+                    highlightLink('certificates');
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        function navigate(page) {
+            loadContent(`body-pages/${page}.html`, 'body-container');
+            highlightLink(page); 
+            window.scrollTo(0, 0); 
+    }
+
+        function highlightLink(pageName) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                // Check if the link exists and has an onclick attribute before checking includes
+                if (link.hasAttribute('onclick') && link.getAttribute('onclick').includes(pageName)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Initialize the page
         window.onload = () => {
-            // Load sidebar instead of a top menu if preferred
             loadContent('sidebar-menu.html', 'sidebar-container');
             loadContent('header.html', 'header-container');
             loadContent('body-pages/certificates.html', 'body-container');
             loadContent('footer.html', 'footer-container');
         };
 
-        function navigate(page) {
-            loadContent(`body-pages/${page}.html`, 'body-container');
-            highlightLink(page); // Update the highlight
-            window.scrollTo(0, 0); // Scroll to top when page changes
-        }
+        // Scrollspy functionality
+        window.addEventListener('scroll', () => {
+            let currentSection = "";
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll(".nav-link");
 
-        function highlightLink(pageName) {
-            // Remove 'active' from all links and add to the current one
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('onclick').includes(pageName)) {
-                    link.classList.add('active');
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 60) {
+                    currentSection = section.getAttribute("id");
                 }
             });
-    }
+
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") && link.getAttribute("href").includes(currentSection)) {
+                    link.classList.add("active");
+                }
+            });
+        });
     </script>
   </div>    
 </body>
