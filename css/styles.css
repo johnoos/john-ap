@@ -42,7 +42,7 @@ body {
 }
 
 .header-style {
-  text-align: center; padding: 3.2rem 1rem 2.2rem; color: white;
+  text-align: center; padding: 2.5rem; color: white;
   background: linear-gradient(135deg,var(--aquamarine)0%,var(--navy)100%);
   position: relative; margin-bottom: 20px; /* Adjust the spacing as needed */
   flex-shrink: 0;      /* Ensures the header doesn't compress */
@@ -77,13 +77,12 @@ header, footer {
 /* --- SIDEBAR (COLUMN 1) --- */
 .sidebar-style {
   flex: 0 0 200px;
-  margin: 25px 20px 20px 20px;             /* Push sidebar away from edges */
-  padding-left: 20px;       /* Keep internal content away from sidebar edge */
+  padding: 25px 20px 20px 20px;             /* Push sidebar away from edges */
   background: #f4f4f4;
   border-radius: 12px;      /* Rounded corners from previous step */
   font-size: 0.9rem;       /* Decreased font size */
   color: #000000;           /* From previous black text step */
-  border: 1px solid rgb(15, 15, 15);   /* Changed from border-right to full border for floating look */
+  border: 2px solid rgb(15, 15, 15);   /* Changed from border-right to full border for floating look */
   overflow-y: auto;
 }
 
