@@ -73,24 +73,30 @@ header, footer {
 /* --- SIDEBAR (COLUMN 1) --- */
 .sidebar-style {
   flex: 0 0 200px;
-  flex-shrink: 0;
-  padding-left: 20px;
-  box-sizing: border-box;
-  width: 200px;
-  height: 100%;
+  margin: 15px;             /* Push sidebar away from edges */
+  padding-left: 20px;       /* Keep internal content away from sidebar edge */
+  background: #f4f4f4;
+  border-radius: 12px;      /* Rounded corners from previous step */
+  font-size: 0.85rem;       /* Decreased font size */
+  color: #000000;           /* From previous black text step */
+  border: 1px solid gray;   /* Changed from border-right to full border for floating look */
   overflow-y: auto;
-  background: #f4f4f4; /* Light gray background */
-  color: #000000;      /* Force black text */
-  border-right: 1px solid rgb(48, 46, 46);
-  border-radius: 15px;
+}
+
+.sidebar-style a {
+  color: #000000 !important;
+  text-decoration: none;
+  font-size: 0.85rem;       /* Matches sidebar container size */
 }
 
 /* Removes bullets and default browser indentation */
 .sidebar-style ul {
   list-style-type: none; /* Removes the bullets */
   padding: 0;           /* Removes default left padding */
-  margin: 0;            /* Ensures no extra outer spacing */
   text-align: ;
+  margin: 15px;      /* Increases spacing around the sidebar */
+  flex: 0 0 260px;   /* Keep original width */
+}
 }
 
 a {text-decoration: none;}
