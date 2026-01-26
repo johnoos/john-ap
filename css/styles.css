@@ -15,6 +15,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow: hidden; /* Prevents the whole page from scrolling */
+  background: var(--bg);
 }
 
 /* --- Main web page layout container (flexbox) - flex layout --- */
@@ -22,6 +23,7 @@ html, body {
   display: flex;
   flex-direction: column;
   height: 100%; /* Force layout to fill the screen height */
+  background: var(--bg);
 }
 
 body {
@@ -46,7 +48,7 @@ body {
 }
 
 .header-style {
-  text-align: center; padding: 2.5rem; color: white;
+  text-align: center; padding: 1.5rem; color: white;
   background: linear-gradient(135deg,var(--aquamarine)0%,var(--navy)100%);
   position: relative; margin-bottom: 20px; /* Adjust the spacing as needed */
   flex-shrink: 0;      /* Ensures the header doesn't compress */
@@ -74,7 +76,7 @@ header, footer {
 .sidebar-style {
   flex: 0 0 200px;
   padding: 25px 20px 20px 20px;             /* Push sidebar away from edges */
-  background: #f4f4f4;
+  background: white;
   border-radius: 12px;      /* Rounded corners from previous step */
   font-size: 0.95rem;       /* Decreased font size */
   color: #000000;           /* From previous black text step */
@@ -204,9 +206,9 @@ main.content { /* Assuming 'main.content' is your main content selector */
     /* If the main content itself needs a specific scrollable area within the fixed layout: */
     /* position: absolute; top: 60px; bottom: 40px; overflow-y: auto; */
 }
-section {background:white;margin:1.4rem 0;padding:1.4rem;
-  border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.06);
-  scroll-margin-top:120px}
+section {background: white; margin: 1.4rem 0; padding: 1.4rem;
+  border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  scroll-margin-top:120px; background: var(--bg);}
 section h2 {
   margin-top:0;
   font-family:var(--heading-font);
@@ -252,11 +254,11 @@ li {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   padding: 2rem;
-  background-color: #f9f9f9;
+  background-color: var(--bg);
 }
 
 .cert-card {
-  background: #ffffff;
+  background: var(--bg)
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -292,6 +294,7 @@ li {
   display: flex;
   gap: 12px;
   justify-content: center;
+  background: var(--bg);
 }
 
 /* Button Styles */
@@ -325,6 +328,7 @@ li {
 .main-wrapper {
   flex: 1;          /* Takes up remaining horizontal space */
   padding: 20px;
+  background: var(--bg);
 }
 
 /* Highlighted Item */
