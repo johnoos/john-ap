@@ -57,45 +57,6 @@
                 }
             });
     }
-
-        // Core function to fetch any HTML file and inject it into a container
-            async function loadContent(url, containerId) {
-                try {
-                    const response = await fetch(url);
-                    if (!response.ok) throw new Error('Failed to load ' + url);
-                    const html = await response.text();
-                    document.getElementById(containerId).innerHTML = html;
-                } catch (err) {
-                    console.error(err);
-                }
-            }
-
-            // Navigation function used by your menu
-            function navigate(page) {
-                loadContent(`body-pages/${page}.html`, 'body-container');
-            }
-
-            // Scrollspy functionality
-            window.addEventListener('scroll', () => {
-                let currentSection = "";
-                const sections = document.querySelectorAll("section");
-                const navLinks = document.querySelectorAll(".nav-link");
-
-                sections.forEach((section) => {
-                    const sectionTop = section.offsetTop;
-                    // Offset (e.g., 60px) helps trigger highlight before section hits top
-                    if (pageYOffset >= sectionTop - 60) {
-                        currentSection = section.getAttribute("id");
-                    }
-                }); 
-
-                navLinks.forEach((link) => {
-                    link.classList.remove("active");
-                    if (link.getAttribute("href").includes(currentSection)) {
-                        link.classList.add("active");
-                    }
-                });
-            });
     </script>
   </div>    
 </body>
