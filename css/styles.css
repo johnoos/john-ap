@@ -31,17 +31,6 @@ body {
   overflow-y: auto;
 }
 
-/* HEADER */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 60px; /* Example height */
-    /* Add a specific height, e.g., height: 60px; */
-}
-
-/* --- HEADER & FOOTER (STATIONARY) --- */
-/* Remove 'position: fixed' from these - Flexbox handles the 'stickiness' now */
 .header-style, .footer-style {
   flex-shrink: 0; /* Prevents them from being squashed */
   width: 100%;
@@ -92,10 +81,12 @@ header, footer {
   overflow-y: auto; /* Sidebar scrolls independently if menu is long */
   background: white;
   color: black;
+  background: #f4f4f4;
+  border-right: 1px solid gray;
 }
 
 /* Removes bullets and default browser indentation */
-.sidebar ul {
+.sidebar-style ul {
   list-style-type: none; /* Removes the bullets */
   padding: 0;           /* Removes default left padding */
   margin: 0;            /* Ensures no extra outer spacing */
@@ -126,7 +117,8 @@ nav ul {
 }
 
 nav ul li a {
-    color: #d3d3d3; /* Lighter color */
+    color: black;
+    text-decoration: none;
 }
 
 /* NAV */
@@ -152,19 +144,6 @@ nav ul li a {
   align-items: left;
   margin-top: 1rem;
   font-size: 1.1rem; /* increased font size */
-}
-
-.primary-nav a {
-  color: white;
-  text-decoration: none;
-  padding: .4rem .8rem;
-  font-weight: 600;
-  border-radius: 6px;
-  font-size: 1.1rem;
-}
-
-.primary-nav a:hover {
-  background: rgba(255, 255, 255, .1);
 }
 
 /* Mobile layout: hide desktop nav and show hamburger */
@@ -217,10 +196,10 @@ main.content { /* Assuming 'main.content' is your main content selector */
     /* If the main content itself needs a specific scrollable area within the fixed layout: */
     /* position: absolute; top: 60px; bottom: 40px; overflow-y: auto; */
 }
-.section{background:white;margin:1.4rem 0;padding:1.4rem;
+section {background:white;margin:1.4rem 0;padding:1.4rem;
   border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.06);
   scroll-margin-top:120px}
-.section h2 {
+section h2 {
   margin-top:0;
   font-family:var(--heading-font);
   font-size:1.5rem;
@@ -228,7 +207,7 @@ main.content { /* Assuming 'main.content' is your main content selector */
 }
 
 /* FOOTER */
-footer {
+.footer-style {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -331,17 +310,6 @@ li {
   opacity: 0.85;
 }
 
-/* Persistent Sidebar */
-.sidebar {
-  width: 250px;
-  position: sticky;
-  top: 0;           /* Sticks to the top of the screen */
-  height: 100vh;    /* Full screen height */
-  padding: 20px;
-  background: #f4f4f4;
-  border-right: 1px solid #ddd;
-}
-
 .content-area {
   flex: 1; /* Main content takes up remaining space */
 }
@@ -357,14 +325,6 @@ li {
   font-weight: bold;
   border-left: 4px solid #007bff;
   padding-left: 8px;
-}
-
-
-
-/* Ensure the main body pushes the footer to the bottom */
-.body-container {
-  flex: 1 0 auto;     
-  width: 100%;
 }
 
 
