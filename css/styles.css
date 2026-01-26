@@ -11,7 +11,7 @@
 
 /* --- LOCK THE VIEWPORT --- */
 html, body {
-  height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
   overflow: hidden; /* Prevents the whole page from scrolling */
@@ -76,10 +76,10 @@ header, footer {
 .sidebar-style {
   flex: 0 0 200px;
   margin-left: 20px;
-  padding: 25px 20px 20px 20px;             /* Push sidebar away from edges */
+  padding: 25px 15px 15px 15px;             /* Push sidebar away from edges */
   background: white;
   border-radius: 12px;      /* Rounded corners from previous step */
-  font-size: 0.95rem;       /* Decreased font size */
+  font-size: 1.0rem;       /* Decreased font size */
   color: #000000;           /* From previous black text step */
   border: 2px solid rgb(15, 15, 15);   /* Changed from border-right to full border for floating look */
   overflow-y: auto;
