@@ -77,8 +77,7 @@ header, footer {
 /* --- SIDEBAR (COLUMN 1) --- */
 .sidebar-style {
   flex: 0 0 200px;
-  margin: 20px;             /* Push sidebar away from edges */
-  margin-top: 28;
+  margin: 25px 20px 20px 20px;             /* Push sidebar away from edges */
   padding-left: 20px;       /* Keep internal content away from sidebar edge */
   background: #f4f4f4;
   border-radius: 12px;      /* Rounded corners from previous step */
