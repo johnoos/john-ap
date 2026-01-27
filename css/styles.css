@@ -1,331 +1,67 @@
-/* FULL REBUILT style.css – synchronised with index.html */
-
-:root{
-  --header-footer-bg:#88acc6;--body-bg:#cccccc;
-  --text:#152028;--muted:#66757a;
-  --heading-font:'Calibri', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-  --body-font:   'Calibri', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+:root {
+  --header-footer-bg: #88acc6;
+  --bg: #cccccc;
+  --navy: #000080;
 }
 
-*{box-sizing:border-box}
-
-/* --- LOCK THE VIEWPORT --- */
+/* 1. LOCK THE VIEWPORT */
 html, body {
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   margin: 0;
-  padding: 0;
-  overflow: hidden; /* Prevents the whole page from scrolling */
+  overflow: hidden; /* Prevents the whole screen from bouncing */
   background: var(--bg);
 }
 
-/* --- Main web page layout container (flexbox) - flex layout --- */
+/* 2. LAYOUT ENGINE */
 .outer-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  background: var(--bg);
+  height: 100vh; /* Must be 100vh to define the boundaries */
 }
-
-.logo {width: 110px; margin: v0 auto .8rem; display: block; border-radius: 8px}
 
 .header-style {
+  height: 80px;
   background: var(--header-footer-bg);
-  height: 80px;           /* Set a specific height */
-  padding: 5px 1.5rem;    /* Reduced top padding to 5px */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  flex-shrink: 0;         /* Prevents it from squashing */
-}
-
-/* Optimized Footer - Replaces all previous .footer-style blocks */
-.footer-style {
-  background: navy;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 40px;           /* Set a specific height */
-  padding: 5px 0;         /* Reduced top padding to 5px */
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  z-index: 1000;          /* Keeps it on top of content */
+  flex-shrink: 0;
 }
 
-/* Ensure the middle area takes the exact remaining height */
 .middle-wrapper {
-  flex: 1;
   display: flex;
-  overflow: hidden; /* This keeps the wrapper itself from scrolling */
-  height: calc(100vh - 120px); /* Adjust 120px to match your total header+footer height */
+  flex: 1;          /* Takes up all room between header & footer */
+  overflow: hidden; /* Vital: Keeps the scroll inside the children */
+  height: calc(100vh - 120px); /* Total height minus Header(80) and Footer(40) */
 }
 
+/* 3. THE SCROLLABLE AREA */
 .body-style {
-  flex-grow: 1;
-  overflow-y: auto; /* This enables the scrollbar */
-  height: 100%;    /* Ensures it fills the middle-wrapper */
+  flex: 1;
+  overflow-y: auto; /* ENABLES SCROLLING */
+  height: 100%;
   padding: 20px;
-  padding-bottom: 60px; /* Extra space so content isn't hidden by fixed footer */
-  min-height: 0; 
+  padding-bottom: 100px; /* Space for the fixed footer */
+  scroll-behavior: smooth;
 }
 
+/* 4. SIDEBAR FIX */
 .sidebar-style {
   flex: 0 0 250px;
-  margin: 20px 0 20px 20px; /* Top, Right, Bottom, Left (20px) */
-  padding: 15px;
+  margin: 20px 0 20px 20px;
   background: white;
   border-radius: 12px;
-  border: 5px solid rgb(46, 46, 46);
+  border: 5px solid #2e2e2e;
   overflow-y: auto;
-  align-self: flex-start; /* Prevents it from stretching to full height if not needed */
-}
-.sidebar-style a {
-  color: #000000 !important;
-  text-decoration: none;
-  font-size: 0.85rem;       /* Matches sidebar container size */
 }
 
-/* Removes bullets and default browser indentation */
-.sidebar-style ul {
-  list-style-type: none; /* Removes the bullets */
-  padding: 0;           /* Removes default left padding */
-  text-align: ;
-  margin: 15px;      /* Increases spacing around the sidebar */
-  flex: 0 0 260px;   /* Keep original width */
-}
-
-a {text-decoration: none;}
-
-/* 4. Menu Item Styling (from previous request) */
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li a {
-    color: black;
-    text-decoration: none;
-}
-
-/* NAV */
-/* Hamburger icon: hidden on desktop, shown on small screens */
-.hamburger {
-  display: none; /* hidden by default */
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: 0;
-  border: 0;
-  color: white;
-  font-size: 1.8rem;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-/* Primary nav: desktop layout */
-.nav-link {
-  display: flex;
-  gap: 1rem;
-  justify-content: left;
-  align-items: left;
-  margin-top: 1rem;
-  font-size: 1.1rem; /* increased font size */
-}
-
-/* Mobile layout: hide desktop nav and show hamburger */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block; /* show hamburger */
-  }
-
-  nav ul {
-    list-style-type: none; /* Removes bullets */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-}
-
-nav ul li a { /* For the links inside the list items */
-    color: #ddd; /* A lighter color */
-}
-
-  .nav-link {
-    display: none; /* hide desktop nav */
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 260px;
-    padding-top: 5rem;
-    background: var(--navy);
-    box-shadow: -8px 0 30px rgba(0, 0, 0, .25);
-    z-index: 999;
-  }
-
-  .nav-link.mobile {
-    display: flex !important; /* show when hamburger clicked */
-  }
-
-  .nav-link.mobile a {
-    padding: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, .1);
-    font-size: 1.2rem;
-  }
-}
-
-/* MAIN */
-main{max-width:900px;margin: 0 auto;padding:0 1rem 3rem}
-
-main.content { /* Assuming 'main.content' is your main content selector */
-    margin-top: 60px; /* Match the header's height */
-    margin-bottom: 40px; /* Match the footer's height */
-    /* If the main content itself needs a specific scrollable area within the fixed layout: */
-    /* position: absolute; top: 60px; bottom: 40px; overflow-y: auto; */
-}
-section {background: white; margin: 1.4rem 0; padding: 1.4rem;
-  border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,.06);
-  scroll-margin-top:120px; background: var(--bg);}
-section h2 {
-  margin-top:0;
-  font-family:var(--heading-font);
-  font-size:1.5rem;
-  /* remove color property */
-}
-
-/* FOOTER */
-.footer-style {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 40px; /* Example height */
-    /* Add a specific height, e.g., height: 40px; */
-}
-
-/* RESPONSIVE */
-@media(max-width:899px){.hamburger{display:block}.primary-nav{display:none}.form-row{flex-direction:column}.logo{width:100px}}
-@media(min-width:900px){.section{scroll-margin-top:100px}} style.css */
-
-h2 {
-  color: var(--navy) !important;
-  font-family: var(--heading-font);
-}
-
-p, li {
-  line-height: 1.3;
-}
-
-p {
-  margin-bottom: 1.3rem;
-}
-
-li {
-  margin-bottom: 1.0rem;
-}
-
-/* container grid for certificates */
-
-.certificate-grid {
-  display: grid;
-  /* Automatically fits columns based on 300px min-width */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-  background-color: var(--bg);
-}
-
-.cert-card {
-  background: var(--bg)
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.cert-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
-.cert-preview img {
-  width: 100%;
-  aspect-ratio: 4 / 3; /* Uniform height for all previews */
-  object-fit: cover;
-  border-bottom: 1px solid #eee;
-}
-
-.cert-info {
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.cert-info h3 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.cert-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  background: var(--bg);
-}
-
-/* Button Styles */
-.btn-view, .btn-download {
-  padding: 10px 18px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 600;
-  transition: opacity 0.2s;
-}
-
-.btn-view {
-  background-color: #e9ecef;
-  color: #495057;
-}
-
-.btn-download {
-  background-color: #007bff;
-  color: #ffffff;
-}
-
-.btn-view:hover, .btn-download:hover {
-  opacity: 0.85;
-}
-
-.content-area {
-  flex: 1; /* Main content takes up remaining space */
-}
-
-.main-wrapper {
-  flex: 1;          /* Takes up remaining horizontal space */
-  padding: 20px;
-  background: var(--bg);
-}
-
-/* Highlighted Item */
-.nav-link.active {
-  color: #007bff;
-  font-weight: bold;
-  border-left: 4px solid #007bff;
-  padding-left: 8px;
-}
-
-/* Define the fade-in effect */
+/* 5. SMOOTH TRANSITION ANIMATION */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(5px); } /* Slight lift effect */
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Class to trigger the animation */
 .fade-in {
   animation: fadeIn 0.4s ease-out forwards;
 }

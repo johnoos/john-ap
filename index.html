@@ -19,29 +19,32 @@
     </div>
 
     <script>
-        // Define functions ONCE
         async function loadContent(url, containerId) {
             try {
                 const container = document.getElementById(containerId);
-        
-                // 1. Remove the animation class if it exists (to reset it)
-                container.classList.remove('fade-in');
+                container.classList.remove('fade-in'); // Reset animation
 
                 const response = await fetch(url);
                 if (!response.ok) throw new Error('Failed to load ' + url);
                 const html = await response.text();
         
-                // 2. Insert the new content
                 container.innerHTML = html;
 
-                // 3. Re-apply the class after a tiny delay to trigger the animation
-                setTimeout(() => {container.classList.add('fade-in');}, 10);
+                // Reset scroll position of the container
+                if (containerId === 'body-container') {
+                    container.scrollTop = 0;
+                }
+
+                // Trigger animation
+                setTimeout(() => {
+                    container.classList.add('fade-in');
+                }, 10);
 
                 if (containerId === 'sidebar-container') {
                     highlightLink('certificates');
                 }
             } catch (err) {
-                    console.error(err);
+                console.error(err);
             }
         }
 
