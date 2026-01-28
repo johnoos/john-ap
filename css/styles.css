@@ -225,7 +225,7 @@ html, body {
  display: flex;
  gap: 10px;
  justify-content: center;
- background: var(--bg);
+ background: #rgb(236, 236, 236)
 }
 
 /* Button Styles */
@@ -244,8 +244,8 @@ html, body {
 }
 
 .btn-download {
- background-color: var(--download-button-blue));
- color: black;
+ background-color: var(--download-button-blue);
+ color: #3c4247;
 }
 
 .btn-view:hover, .btn-download:hover {
