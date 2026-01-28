@@ -39,6 +39,7 @@ html, body {
 /* 3. THE VIEWPORT (Content Area) */
 .viewport-style {
   flex: 1;
+  height: auto;
   display: flex;
   flex-direction: column;
   background: white;
@@ -92,6 +93,7 @@ html, body {
   /* Ensure it also has a bottom margin so the corners don't touch the footer */
   margin: 0 0 20px 20px; 
   overflow-y: auto;
+  height: auto;     /* don’t lock height */
 }
 
 /* 4. ANIMATIONS */
