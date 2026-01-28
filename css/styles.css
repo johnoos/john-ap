@@ -23,6 +23,9 @@ html, body {
 }
 
 /* 2. HEADER & FOOTER */
+
+.logo {width: 110px; margin: v0 auto .8rem; display: block; border-radius: 8px}
+
 .panel-style {
   height: 120px;
   background: var(--header-footer-bg);
