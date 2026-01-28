@@ -70,6 +70,31 @@ html, body {
  line-height: 2.0;
 }
 
+/* Base style for sidebar items */
+.sidebar-item-style {
+    display: block;
+    padding: 12px 20px;
+    color: #555;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent; /* invisible marker for active state */
+}
+
+/* Hover state for better interactivity */
+.sidebar-item-style:hover {
+    background-color: #f8f9fa;
+    color: #000;
+}
+
+/* Active state - triggered when the .active class is added via JS */
+.sidebar-item-style.active {
+    background-color: #e9ecef; /* Light grey background */
+    color: #007bff;            /* Primary brand colour (e.g., Blue) */
+    font-weight: 600;          /* Subtle bold for emphasis */
+    border-left-color: #007bff; /* Visual bar on the left */
+}
+
 /* content area */
 /* Outer rounded container (clips scrollbar) */
 .viewport-wrapper {
@@ -217,5 +242,44 @@ html, body {
 
 .btn-view:hover, .btn-download:hover {
  opacity: 0.85;
+}
+
+/* Responsive adjustments for mobile */
+@media screen and (max-width: 768px) {
+    /* 1. Stack the layout vertically */
+    .stage-layout {
+        flex-direction: column;
+    }
+
+    /* 2. Transform the rail into a top-bar */
+    #nav-rail {
+        width: 100%;
+        height: auto;
+        display: flex; /* Arrange menu items horizontally */
+        overflow-x: auto; /* Allow horizontal scrolling if items overflow */
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        background-color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    /* 3. Adjust sidebar items for horizontal layout */
+    .sidebar-item-style {
+        flex: 1; /* Distribute space evenly */
+        text-align: center;
+        padding: 10px 5px;
+        border-left: none;
+        border-bottom: 3px solid transparent; /* Move active marker to bottom */
+        font-size: 0.9rem;
+    }
+
+    /* 4. Update active state for mobile */
+    .sidebar-item-style.active {
+        border-left-color: transparent;
+        border-bottom-color: #007bff; /* Underline instead of side-bar */
+        background-color: transparent;
+    }
 }
 
