@@ -14,7 +14,7 @@ html, body {
   overflow: hidden; /* Prevents double scrollbars */
   display: flex;
   flex-direction: column;
-  font-family: "Montserrat", sans-serif;
+  font-family: Montserrat, Roboto, Lato, "Open Sans", sans-serif;
 }
 
 .outer-wrapper {
