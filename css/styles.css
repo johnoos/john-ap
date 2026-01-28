@@ -49,10 +49,11 @@ html, body {
   display: flex;
   flex: 1;
   overflow: hidden;
-  flex-direction: column; /* Mobile first: stacked */
-  padding: 10px;
-  gap: 15px;
-  margin: 20px;
+  flex-direction: column;
+  /* Add consistent 20px padding to all sides to protect the corners */
+  padding: 20px; 
+  gap: 20px;
+  background: var(--bg);
 }
 
 /* sidebar */
