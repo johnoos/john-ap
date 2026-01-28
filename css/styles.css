@@ -2,6 +2,8 @@
   --header-footer-bg: #88acc6;
   --bg: #cccccc;
   --navy: #000080;
+  --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Defined missing variable */
+  --accent-blue: #007bff;
 }
 
 /* 1. LOCK THE VIEWPORT */
@@ -9,15 +11,16 @@ html, body {
   height: 100vh;
   width: 100vw;
   margin: 0;
-  overflow: hidden; /* Prevents the whole screen from bouncing */
+  overflow: hidden; 
   background: var(--bg);
+  font-family: sans-serif;
 }
 
 /* 2. LAYOUT ENGINE */
 .outer-wrapper {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Must be 100vh to define the boundaries */
+  height: 100vh;
 }
 
 .header-style {
@@ -27,26 +30,25 @@ html, body {
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  z-index: 10;
 }
 
 .middle-wrapper {
   display: flex;
-  flex: 1;          /* Takes up all room between header & footer */
-  overflow: hidden; /* Vital: Keeps the scroll inside the children */
-  height: calc(100vh - 120px); /* Total height minus Header(80) and Footer(40) */
+  flex: 1;
+  overflow: hidden; 
 }
 
 /* 3. THE SCROLLABLE AREA */
 .body-style {
   flex: 1;
-  overflow-y: auto; /* ENABLES SCROLLING */
-  height: 100%;
+  overflow-y: auto;
   padding: 20px;
-  padding-bottom: 100px; /* Space for the fixed footer */
+  padding-bottom: 100px; 
   scroll-behavior: smooth;
 }
 
-/* 4. SIDEBAR FIX */
+/* 4. SIDEBAR */
 .sidebar-style {
   flex: 0 0 250px;
   margin: 20px 0 20px 20px;
@@ -56,7 +58,93 @@ html, body {
   overflow-y: auto;
 }
 
-/* 5. SMOOTH TRANSITION ANIMATION */
+.sidebar-style ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 15px;
+}
+
+/* Nav Links & State Handling */
+.nav-link {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #000 !important;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.nav-link.active {
+  color: var(--accent-blue) !important;
+  font-weight: bold;
+  border-left: 4px solid var(--accent-blue);
+  padding-left: 8px;
+}
+
+/* FOOTER */
+.footer-style {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: var(--header-footer-bg); /* Added background for visibility */
+}
+
+/* CONTENT ELEMENTS */
+section {
+  background: white;
+  margin: 1.4rem 0;
+  padding: 1.4rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  scroll-margin-top: 20px;
+}
+
+h2 {
+  color: var(--navy);
+  font-family: var(--heading-font);
+  margin-top: 0;
+}
+
+p, li { line-height: 1.5; margin-bottom: 1rem; }
+
+/* 5. DYNAMIC CONTENT (Certificates - keep if in body-pages) */
+.certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.cert-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.cert-card:hover { transform: translateY(-8px); }
+
+.cert-preview img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.btn-view, .btn-download {
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.btn-download { background: var(--accent-blue); color: white; }
+
+/* 6. ANIMATIONS */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -66,4 +154,13 @@ html, body {
   animation: fadeIn 0.4s ease-out forwards;
 }
 
-
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .middle-wrapper { flex-direction: column; }
+  .sidebar-style { 
+    flex: none; 
+    margin: 10px; 
+    height: auto; 
+    max-height: 200px; 
+  }
+}
