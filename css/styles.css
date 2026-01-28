@@ -57,26 +57,37 @@ html, body {
 }
 
 /* sidebar */
-.rail-style {      
+.rail-style {
   flex: 0 0 auto;
   background: white;
   border-radius: 20px;
   border: 2px solid var(--border-colour);
   padding: 15px;
+  /* 3. CLIP THESE CORNERS TOO */
+  overflow: hidden; 
 }
 
 /* main content area */
 .viewport-style {
   flex: 1;
-  overflow-y: auto;
-  scroll-behavior: smooth;
+  /* CLIP THE CORNERS: This is the magic line */
+  overflow: hidden; 
+  
+  display: flex;
+  flex-direction: column;
   background: white;
   border-radius: 20px;
   border: 2px solid var(--border-colour);
-  padding: 20px;
-  /* Pronounced Shadow */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); 
-  margin: 0; /* Handled by parent gap/padding */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* THE SECRET INNER SCROLLER */
+/* This ensures the scrollbar stays inside the rounded border */
+.viewport-style > * {
+  overflow-y: auto;
+  flex: 1;
+  padding: 20px; /* Move padding here so content doesn't touch the border */
+  border-radius: inherit; /* Helps background colors stay inside the curves */
 }
 
 /* DESKTOP REFINEMENT */
