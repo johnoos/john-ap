@@ -57,37 +57,43 @@ html, body {
 }
 
 /* sidebar */
+.viewport-style {
+  flex: 1;
+  /* 1. Restore scrolling to this container */
+  overflow-y: auto; 
+  scroll-behavior: smooth;
+  
+  background: white;
+  border-radius: 20px;
+  border: 2px solid var(--border-colour);
+  
+  /* 2. Remove the margin: 0; Add a bottom margin to push away from the footer */
+  margin: 0 20px 20px 20px; 
+  
+  /* 3. Padding for the content inside */
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  
+  /* 4. Fix for rounded corners + scrollbars */
+  position: relative;
+}
+
 .rail-style {
-  flex: 0 0 auto;
+  flex: 0 0 250px;
   background: white;
   border-radius: 20px;
   border: 2px solid var(--border-colour);
   padding: 15px;
-  /* 3. CLIP THESE CORNERS TOO */
-  overflow: hidden; 
-}
-
-/* main content area */
-.viewport-style {
-  flex: 1;
-  /* CLIP THE CORNERS: This is the magic line */
-  overflow: hidden; 
-  
-  display: flex;
-  flex-direction: column;
-  background: white;
-  border-radius: 20px;
-  border: 2px solid var(--border-colour);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-/* THE SECRET INNER SCROLLER */
-/* This ensures the scrollbar stays inside the rounded border */
-.viewport-style > * {
+  /* Ensure it also has a bottom margin so the corners don't touch the footer */
+  margin: 0 0 20px 20px; 
   overflow-y: auto;
-  flex: 1;
-  padding: 20px; /* Move padding here so content doesn't touch the border */
-  border-radius: inherit; /* Helps background colors stay inside the curves */
+}
+
+/* 5. The Content Buffer */
+/* This ensures that whatever you load (like cert-cards) doesn't sit flush 
+   against the bottom of the viewport, keeping the curves visible. */
+#content-viewport > div {
+  padding-bottom: 40px; 
 }
 
 /* DESKTOP REFINEMENT */
