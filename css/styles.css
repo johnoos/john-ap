@@ -32,7 +32,8 @@ html, body {
   /* Padding creates "air" so corners/shadows aren't clipped */
   padding: 20px;
   gap: 20px;
-  align-items: stretch 
+  align-items: stretch;
+  margin: 20px; 
 }
 
 /* 3. THE VIEWPORT (Content Area) */
