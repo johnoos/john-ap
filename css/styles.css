@@ -31,7 +31,8 @@ html, body {
   background: var(--bg);
   /* Padding creates "air" so corners/shadows aren't clipped */
   padding: 20px;
-  gap: 20px; 
+  gap: 20px;
+  align-items: stretch 
 }
 
 /* 3. THE VIEWPORT (Content Area) */
