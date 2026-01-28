@@ -117,7 +117,6 @@ html, body {
   margin: 20px;
   background: white;
   scrollbar-gutter: stable;
-
   border-radius: 15px;
 }
 
@@ -167,7 +166,7 @@ html, body {
  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
  gap: 2rem;
  padding: 2rem;
- background-color: var(--bg);
+ background-color: white;
 }
 
 .cert-card {
