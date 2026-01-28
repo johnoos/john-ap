@@ -3,7 +3,7 @@
   --bg: #cdcdcd;
   --border-colour: hsl(0, 0%, 18%);
   --view-button-gray: hsl(0, 0%, 60%);
-  --downloadbutton-blue: hsl(211, 71%, 68%);
+  --download-button-blue: hsl(211, 71%, 68%);
 }
   
 /* 1. LOCK VIEWPORT & FORCE FLEX COLUMN */
@@ -240,12 +240,12 @@ html, body {
 
 .btn-view {
  background-color: var(--view-button-gray);
- color: #495057;
+ color: #3c4247;
 }
 
 .btn-download {
  background-color: var(--download-button-blue));
- color: #ffffff;
+ color: black;
 }
 
 .btn-view:hover, .btn-download:hover {
