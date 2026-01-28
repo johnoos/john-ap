@@ -2,7 +2,8 @@
   --header-footer-bg: #cdcdcd;
   --bg: #cdcdcd;
   --border-colour: hsl(0, 0%, 18%);
-  --accent-blue: #76b3f4;
+  --view-button-gray: hsl(0, 0%, 60%);
+  --downloadbutton-blue: hsl(211, 71%, 68%);
 }
   
 /* 1. LOCK VIEWPORT & FORCE FLEX COLUMN */
@@ -209,15 +210,15 @@ html, body {
 }
 
 .cert-info {
- padding: 1.5rem;
+ padding: 1.0rem;
  text-align: center;
 }
 
 .cert-info h3 {
- padding-top: 2px; 
+ padding-top: 0; 
  font-size: 1.0rem;
  margin-bottom: 1rem;
- color: #333;
+ color: #454545;
 }
 
 .cert-actions {
@@ -238,12 +239,12 @@ html, body {
 }
 
 .btn-view {
- background-color: #e9ecef;
+ background-color: var(--view-button-gray);
  color: #495057;
 }
 
 .btn-download {
- background-color: #007bff;
+ background-color: var(--download-button-blue));
  color: #ffffff;
 }
 
