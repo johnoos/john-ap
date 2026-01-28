@@ -191,7 +191,6 @@ html, body {
  border-bottom: 1px solid #eee;
 }
 
-
 .cert-info {
  padding: 1.5rem;
  text-align: center;
@@ -199,7 +198,8 @@ html, body {
 
 
 .cert-info h3 {
- font-size: 1.1rem;
+ padding-top: 2px; 
+ font-size: 1.0rem;
  margin-bottom: 1rem;
  color: #333;
 }
@@ -207,7 +207,7 @@ html, body {
 
 .cert-actions {
  display: flex;
- gap: 4px;
+ gap: 10px;
  justify-content: center;
  background: white;
 }
