@@ -22,7 +22,7 @@ html, body {
   height: 100vh;
 }
 
-/* 2. THE STAGE (Middle Section) */
+/* middle wrapper */
 .stage-layout {
   flex: 1; /* Fills all space between header and footer */
   display: flex;
@@ -36,7 +36,20 @@ html, body {
   margin: 20px; 
 }
 
-/* 3. THE VIEWPORT (Content Area) */
+/* sidebar */
+.rail-style {
+  flex: 0 0 250px;
+  background: white;
+  border-radius: 20px;
+  border: 2px solid var(--border-colour);
+  padding: 15px;
+  /* Ensure it also has a bottom margin so the corners don't touch the footer */
+  margin: 20px; 
+  overflow-y: auto;
+  height: auto;     /* don’t lock height */
+}
+
+/* content area */
 .viewport-style {
   flex: 1;
   height: auto;
@@ -46,6 +59,7 @@ html, body {
   border-radius: 20px;
   border: 2px solid var(--border-colour);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  margin: 20px;
   /* 
      Crucial: Set overflow on the child or use a nested scroller 
      to keep the scrollbar inside the rounded corners.
@@ -82,18 +96,6 @@ html, body {
   align-items: center;
   flex-shrink: 0;
   z-index: 10;
-}
-
-.rail-style {
-  flex: 0 0 250px;
-  background: white;
-  border-radius: 20px;
-  border: 2px solid var(--border-colour);
-  padding: 15px;
-  /* Ensure it also has a bottom margin so the corners don't touch the footer */
-  margin: 0 0 20px 20px; 
-  overflow-y: auto;
-  height: auto;     /* don’t lock height */
 }
 
 /* 4. ANIMATIONS */
