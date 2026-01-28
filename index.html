@@ -55,7 +55,7 @@
         }
 
         function highlightLink(pageName) {
-            document.querySelectorAll('.nav-link').forEach(link => {
+            document.querySelectorAll('.sidebar-item-style').forEach(link => {
                 link.classList.remove('active');
                 // Check if the link exists and has an onclick attribute before checking includes
                 if (link.hasAttribute('onclick') && link.getAttribute('onclick').includes(pageName)) {
@@ -76,7 +76,7 @@
         window.addEventListener('scroll', () => {
             let currentSection = "";
             const sections = document.querySelectorAll("section");
-            const navLinks = document.querySelectorAll(".nav-link");
+            const navLinks = document.querySelectorAll(".sidebar-item-style");
 
             sections.forEach((section) => {
                 const sectionTop = section.offsetTop;

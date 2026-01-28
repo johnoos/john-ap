@@ -1,5 +1,5 @@
 :root {
-  --header-footer-bg: #567ece;
+  --header-footer-bg: #89acf1;
   --bg: #cccccc;
   --border-colour: hsl(0, 0%, 18%);
   --h2-colour: hsl(0, 0%, 18%); 
@@ -28,7 +28,7 @@ html, body {
 .logo {width: 110px; margin: v0 auto .8rem; display: block; border-radius: 8px}
 
 .header-style {
-  height: 100px;
+  height: 120px;
   background: var(--header-footer-bg);
   display: flex;
   justify-content: center;
@@ -44,20 +44,11 @@ html, body {
   background: var(--bg); 
 }
 
-/* 3. THE SCROLLABLE AREA */
-.body-style {
-  flex: 1;
-  overflow-y: auto;
-  padding: 20px 40px 20px 20px;
-  padding-bottom: 100px; 
-  scroll-behavior: smooth;
-  background: var(--bg);
-}
-
 /* 4. SIDEBAR */
 .sidebar-style {
   flex: 0 0 250px;
   margin: 20px 0 20px 20px;
+  padding: 20px;
   background: white;
   border-radius: 20px;
   border: 2px solid var(--border-colour);
@@ -71,7 +62,7 @@ html, body {
 }
 
 /* Nav Links & State Handling */
-.nav-link {
+.sidebar-item-style {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
@@ -81,11 +72,22 @@ html, body {
   transition: all 0.2s;
 }
 
-.nav-link.active {
+.sidebar-item-style.active {
   color: var(--accent-blue) !important;
   font-weight: bold;
   border-left: 4px solid var(--accent-blue);
   padding-left: 8px;
+}
+
+/* 3. THE SCROLLABLE AREA */
+.body-style {
+  flex: 1;
+  overflow-y: auto;
+  /* padding-bottom: 100px; */ 
+  scroll-behavior: smooth;
+  background: var(--bg);
+  border-radius: 20px;
+  border: 2px solid var(--border-colour);
 }
 
 /* FOOTER */
@@ -93,7 +95,7 @@ html, body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 40px;
+  height: 80px;
   background: var(--header-footer-bg); /* Added background for visibility */
 }
 
@@ -125,10 +127,11 @@ p, li { line-height: 1.5; margin-bottom: 1rem; }
 
 .cert-card {
   background: white;
-  border-radius: 12px;
+  border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
+  margin: 10px;
 }
 
 .cert-card:hover { transform: translateY(-8px); }
