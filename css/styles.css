@@ -1,11 +1,11 @@
 :root {
-  --header-footer-bg: #c8ddfe;
+  --header-footer-bg: white;
   --bg: #cccccc;
   --border-colour: hsl(0, 0%, 18%);
   --accent-blue: #007bff;
 }
 
-/* 1. RESET & VIEWPORT LOCK */
+/* VIEWPORT */
 html, body {
   height: 100vh;
   width: 100vw;
@@ -22,11 +22,11 @@ html, body {
   height: 100vh;
 }
 
-/* 2. HEADER & FOOTER */
-
+/* HEADER & FOOTER */
 .logo {width: 110px; margin: v0 auto .8rem; display: block; border-radius: 8px}
 
-.panel-style {
+/* header */
+.panel-style { 
   height: 120px;
   background: var(--header-footer-bg);
   display: flex;
@@ -36,13 +36,15 @@ html, body {
   z-index: 10;
 }
 
-.dock-style {
+/* footer */
+.dock-style {   
   height: 80px;
   background: var(--header-footer-bg);
   flex-shrink: 0;
 }
 
-/* 3. RESPONSIVE STAGE LAYOUT */
+/* responsive stage layout - entire floorspace between header and footer 
+   - the invisible grid holding everything in the middle                    */
 .stage-layout {
   display: flex;
   flex: 1;
@@ -52,7 +54,8 @@ html, body {
   gap: 15px;
 }
 
-.rail-style {
+/* sidebar */
+.rail-style {      
   flex: 0 0 auto;
   background: white;
   border-radius: 20px;
@@ -60,6 +63,7 @@ html, body {
   padding: 15px;
 }
 
+/* main content area */
 .viewport-style {
   flex: 1;
   overflow-y: auto;
@@ -100,3 +104,87 @@ html, body {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+.certificate-grid {
+ display: grid;
+ /* Automatically fits columns based on 300px min-width */
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 2rem;
+ padding: 2rem;
+ background-color: var(--bg);
+}
+
+
+.cert-card {
+ background: var(--bg)
+ border-radius: 12px;
+ overflow: hidden;
+ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
+ display: flex;
+ flex-direction: column;
+}
+
+
+.cert-card:hover {
+ transform: translateY(-8px);
+ box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+
+.cert-preview img {
+ width: 100%;
+ aspect-ratio: 4 / 3; /* Uniform height for all previews */
+ object-fit: cover;
+ border-bottom: 1px solid #eee;
+}
+
+
+.cert-info {
+ padding: 1.5rem;
+ text-align: center;
+}
+
+
+.cert-info h3 {
+ font-size: 1.1rem;
+ margin-bottom: 1rem;
+ color: #333;
+}
+
+
+.cert-actions {
+ display: flex;
+ gap: 12px;
+ justify-content: center;
+ background: var(--bg);
+}
+
+
+/* Button Styles */
+.btn-view, .btn-download {
+ padding: 10px 18px;
+ border-radius: 6px;
+ text-decoration: none;
+ font-size: 0.85rem;
+ font-weight: 600;
+ transition: opacity 0.2s;
+}
+
+
+.btn-view {
+ background-color: #e9ecef;
+ color: #495057;
+}
+
+
+.btn-download {
+ background-color: #007bff;
+ color: #ffffff;
+}
+
+
+.btn-view:hover, .btn-download:hover {
+ opacity: 0.85;
+}
+
