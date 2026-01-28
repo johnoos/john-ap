@@ -74,30 +74,25 @@ html, body {
 .viewport-wrapper {
   flex: 1;
   display: flex;
-
   background: white;
   border-radius: 20px;
   border: 2px solid var(--border-colour);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-
   margin: 20px;
-
   overflow: hidden; /* ✅ clips scrollbar to rounded corners */
 }
-
 
 /* Inner scroll container */
 .viewport-style {
   flex: 1;
   display: flex;
   flex-direction: column;
-
   overflow-y: auto; /* ✅ scrollbar lives here now */
-
   padding: 20px;
   background: white;
   scrollbar-gutter: stable;
-  margin:8px;
+  margin: 8px;
+  border: 2px solid var(--border-colour);
   border-radius: 15px;
 }
 
