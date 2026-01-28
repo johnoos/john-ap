@@ -45,37 +45,50 @@ html, body {
 
 /* responsive stage layout - entire floorspace between header and footer 
    - the invisible grid holding everything in the middle                    */
+/* THE MIDDLE WRAPPER */
 .stage-layout {
   display: flex;
   flex: 1;
-  overflow: hidden;
+  /* 1. CRITICAL: Allow the parent to show overflow shadows/borders */
+  overflow: visible; 
+  background: var(--bg);
   flex-direction: column;
-  /* Add consistent 20px padding to all sides to protect the corners */
+  /* 2. Create space for the bottom rounded corners to be seen */
   padding: 20px; 
   gap: 20px;
-  background: var(--bg);
 }
 
-/* sidebar */
+/* THE SCROLLABLE CONTENT */
 .viewport-style {
+  scrollbar-gutter: stable both-edges;
   flex: 1;
-  /* 1. Restore scrolling to this container */
+  /* 3. Standard scrolling */
   overflow-y: auto; 
   scroll-behavior: smooth;
   
   background: white;
   border-radius: 20px;
   border: 2px solid var(--border-colour);
-  
-  /* 2. Remove the margin: 0; Add a bottom margin to push away from the footer */
-  margin: 0 20px 20px 20px; 
-  
-  /* 3. Padding for the content inside */
   padding: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   
-  /* 4. Fix for rounded corners + scrollbars */
-  position: relative;
+  /* 4. Pronounced shadow (will now be visible thanks to overflow:visible above) */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+  
+  /* Ensure it doesn't grow infinitely */
+  min-height: 0; 
+}
+
+/* DESKTOP REFINEMENT */
+@media (min-width: 768px) {
+  .stage-layout {
+    flex-direction: row;
+    /* 
+       TOP: 0 (keep flush with header)
+       SIDES/BOTTOM: 20px (keep corners visible) 
+    */
+    padding: 0 20px 20px 20px; 
+    gap: 20px;
+  }
 }
 
 .rail-style {
