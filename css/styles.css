@@ -1,5 +1,5 @@
 :root {
-  --header-footer-bg: #fdfbf5;
+  --header-footer-bg: #2fa6d1;
   --bg: #cccccc;
   --border-colour: hsl(0, 0%, 18%);
   --accent-blue: #007bff;
@@ -120,14 +120,15 @@ html, body {
   border-radius: 15px;
 }
 
-/* 4. FOOTER */
+/* FOOTER */
 .dock-style {
   background: var(--header-footer-bg);
-  background-image: url("/resources/artwork/bottom-right.png"); /* Update URL to your image file */
+  /*
+  background-image: url("/resources/artwork/bottom-right.png"); /* Update URL to your image file 
   background-repeat: no-repeat;
-  background-position: bottom right; /* Aligns the top cap to the top of the header */
-  background-size: auto 80px; /* Ensures the image covers the width while maintaining aspect ratio */
-  /* Add padding for content here */
+  background-position: bottom right; /* Aligns the top cap to the top of the header 
+  background-size: auto 80px; /* Ensures the image covers the width while maintaining aspect ratio 
+  Add padding for content here */
   margin: 0;
   Padding: 0;
   box-sizing: border-box; /* Ensures padding doesn't add to the total height */
@@ -148,12 +149,14 @@ html, body {
 .logo {width: 110px; margin: v0 auto .8rem; display: block; border-radius: 8px}
 
 /* header */
-.panel-style { 
+.panel-style {
+  background: var(--header-footer-bg); 
   height: 120px;
-  background-image: url("/resources/artwork/top-left.png"); /* Update URL to your image file */
+  /*  
+  background-image: url("/resources/artwork/top-left.png"); /* Update URL to your image file 
   background-repeat: no-repeat;
-  background-position: top left; /* Aligns the top cap to the top of the header */
-  background-size: auto 120px; /* Ensures the image covers the width while maintaining aspect ratio */
+  background-position: top left; /* Aligns the top cap to the top of the header 
+  background-size: auto 120px; /* Ensures the image covers the width while maintaining aspect ratio 
   /* Add padding for content here */
   margin: 0;
   Padding: 0;
@@ -165,7 +168,7 @@ html, body {
   z-index: 10;
 }
 
-/* 4. ANIMATIONS */
+/* ANIMATIONS */
 .fade-in {
   animation: fadeIn 0.4s ease-out forwards;
 }
