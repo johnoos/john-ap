@@ -23,6 +23,8 @@ html, body {
   height: 100vh;
 }
 
+.logo {width: 110px; margin: v0 auto .8rem; display: block; border-radius: 8px}
+
 .header-style {
   height: 80px;
   background: var(--header-footer-bg);
