@@ -88,11 +88,10 @@ html, body {
   display: flex;
   flex-direction: column;
   overflow-y: auto; /* ✅ scrollbar lives here now */
-  padding: 20px;
+  margin: 20px;
   background: white;
   scrollbar-gutter: stable;
-  margin: 8px;
-  border: 2px solid var(--border-colour);
+
   border-radius: 15px;
 }
 
