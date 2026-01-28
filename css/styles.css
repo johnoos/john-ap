@@ -26,11 +26,12 @@ html, body {
 .stage-layout {
   flex: 1; /* Fills all space between header and footer */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   overflow: hidden; /* Ensures it doesn't push the footer down */
   background: var(--bg);
   /* Padding creates "air" so corners/shadows aren't clipped */
-  padding: 20px; 
+  padding: 20px;
+  gap: 20px; 
 }
 
 /* 3. THE VIEWPORT (Content Area) */
