@@ -1,5 +1,5 @@
 :root {
-  --header-footer-bg: white;
+  --header-footer-bg: #fdfbf5;
   --bg: #cccccc;
   --border-colour: hsl(0, 0%, 18%);
   --accent-blue: #007bff;
@@ -122,6 +122,16 @@ html, body {
 
 /* 4. FOOTER FIX */
 .dock-style {
+
+  background-image: url('resources/artwork/bottom-right.png'); /* Update URL to your image file */
+  background-repeat: no-repeat;
+  background-position: bottom right; /* Aligns the top cap to the top of the header */
+  background-size: auto 80px; /* Ensures the image covers the width while maintaining aspect ratio */
+  /* Add padding for content here */
+  margin: 0;
+  Padding: 0;
+  box-sizing: border-box; /* Ensures padding doesn't add to the total height */
+
   flex-shrink: 0; /* Prevents the footer from getting squashed */
   height: 80px;
   background: var(--header-footer-bg);
@@ -142,7 +152,16 @@ html, body {
 /* header */
 .panel-style { 
   height: 120px;
-  background: var(--header-footer-bg);
+
+  background-image: url('resources/artwork/top-left.png'); /* Update URL to your image file */
+  background-repeat: no-repeat;
+  background-position: top left; /* Aligns the top cap to the top of the header */
+  background-size: auto 120px; /* Ensures the image covers the width while maintaining aspect ratio */
+  /* Add padding for content here */
+  margin: 0;
+  Padding: 0;
+  box-sizing: border-box; /* Ensures padding doesn't add to the total height */
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -170,7 +189,7 @@ html, body {
 }
 
 .cert-card {
- background: var(--bg)
+ background: var(--bg);
  border-radius: 12px;
  overflow: hidden;
  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
@@ -196,7 +215,6 @@ html, body {
  text-align: center;
 }
 
-
 .cert-info h3 {
  padding-top: 2px; 
  font-size: 1.0rem;
@@ -204,14 +222,12 @@ html, body {
  color: #333;
 }
 
-
 .cert-actions {
  display: flex;
  gap: 10px;
  justify-content: center;
  background: white;
 }
-
 
 /* Button Styles */
 .btn-view, .btn-download {
@@ -223,18 +239,15 @@ html, body {
  transition: opacity 0.2s;
 }
 
-
 .btn-view {
  background-color: #e9ecef;
  color: #495057;
 }
 
-
 .btn-download {
  background-color: #007bff;
  color: #ffffff;
 }
-
 
 .btn-view:hover, .btn-download:hover {
  opacity: 0.85;
