@@ -225,7 +225,7 @@ html, body {
  display: flex;
  gap: 10px;
  justify-content: center;
- background: #rgb(236, 236, 236)
+ background: #dfdfdf; 
 }
 
 /* Button Styles */
