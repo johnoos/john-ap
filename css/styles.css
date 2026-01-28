@@ -123,7 +123,6 @@ p, li { line-height: 1.5; margin-bottom: 1rem; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  padding: 1rem 0;
 }
 
 .cert-card {
@@ -145,11 +144,11 @@ p, li { line-height: 1.5; margin-bottom: 1rem; }
 }
 
 .btn-view, .btn-download {
-  padding: 10px 18px;
+  padding: 10px;
   border-radius: 6px;
   text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 400;
   display: inline-block;
 }
 
