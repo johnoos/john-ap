@@ -49,6 +49,23 @@ html, body {
   height: auto;     /* don’t lock height */
 }
 
+.rail-style a {
+ color: #000000 !important;
+ text-decoration: none;
+ font-size: 0.85rem;       /* Matches sidebar container size */
+}
+
+
+/* Removes bullets and default browser indentation */
+.rail-style ul {
+ list-style-type: none; /* Removes the bullets */
+ padding: 0;           /* Removes default left padding */
+ text-align: ;
+ margin: 15px;      /* Increases spacing around the sidebar */
+ flex: 0 0 260px;   /* Keep original width */
+}
+
+
 /* content area */
 /* Outer rounded container (clips scrollbar) */
 .viewport-wrapper {
