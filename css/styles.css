@@ -1,5 +1,5 @@
 :root {
-  --header-footer-bg: #2fa6d1;
+  --header-footer-bg: #93d6ee;
   --bg: #cccccc;
   --border-colour: hsl(0, 0%, 18%);
   --accent-blue: #007bff;
@@ -31,7 +31,7 @@ html, body {
   overflow: hidden; /* Ensures it doesn't push the footer down */
   background: var(--bg);
   /* Padding creates "air" so corners/shadows aren't clipped */
-  padding: 40px, 20px, 20px, 20px;
+  /* padding: 40px, 20px, 20px, 20px; */
   gap: 20px;
   align-items: stretch;
   margin: 20px;
