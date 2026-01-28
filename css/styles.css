@@ -2,32 +2,28 @@
   --header-footer-bg: #c8ddfe;
   --bg: #cccccc;
   --border-colour: hsl(0, 0%, 18%);
-  --h2-colour: hsl(0, 0%, 18%); 
-  --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Defined missing variable */
   --accent-blue: #007bff;
 }
 
-/* 1. LOCK THE VIEWPORT */
+/* 1. RESET & VIEWPORT LOCK */
 html, body {
   height: 100vh;
   width: 100vw;
   margin: 0;
+  padding: 0;
   overflow: hidden; 
   background: var(--bg);
-  font-family: sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* 2. LAYOUT ENGINE */
 .outer-wrapper {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: var(--bg);
 }
 
-.logo {width: 110px; margin: v0 auto .8rem; display: block; border-radius: 8px}
-
-.header-style {
+/* 2. HEADER & FOOTER */
+.panel-style {
   height: 120px;
   background: var(--header-footer-bg);
   display: flex;
@@ -37,140 +33,67 @@ html, body {
   z-index: 10;
 }
 
-.middle-wrapper {
-  display: flex;
-  flex: 1;
-  overflow: hidden;
-  background: var(--bg); 
-}
-
-/* 4. SIDEBAR */
-.sidebar-style {
-  flex: 0 0 250px;
-  margin: 20px;
-  padding: 20px;
-  background: white;
-  border-radius: 20px;
-  border: 2px solid var(--border-colour);
-  overflow-y: auto;
-}
-
-.sidebar-style ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 15px;
-}
-
-/* Nav Links & State Handling */
-.sidebar-item-style {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-  font-size: 1.0rem;
-  color: #000 !important;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
-.sidebar-item-style.active {
-  color: var(--accent-blue) !important;
-  font-weight: bold;
-  border-left: 4px solid var(--accent-blue);
-  padding-left: 8px;
-}
-
-/* 3. THE SCROLLABLE AREA */
-.body-style {
-  flex: 1;
-  overflow-y: auto;
-  padding-bottom: 100px; 
-  scroll-behavior: smooth;
-  background: var(--bg);
-  border-radius: 20px;
-  border: 2px solid var(--border-colour);
-  margin: 20px;
-}
-
-/* FOOTER */
-.footer-style {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+.dock-style {
   height: 80px;
-  background: var(--header-footer-bg); /* Added background for visibility */
+  background: var(--header-footer-bg);
+  flex-shrink: 0;
 }
 
-/* CONTENT ELEMENTS */
-section {
-  background: white;
-  margin: 1.4rem 0;
-  padding: 1.4rem;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.06);
-  scroll-margin-top: 20px;
-}
-
-h2 {
-  color: var(--h2-colour);
-  font-family: var(--heading-font);
-  margin-top: 0;
-}
-
-p, li { line-height: 1.5; margin-bottom: 1rem; }
-
-/* 5. DYNAMIC CONTENT (Certificates - keep if in body-pages) */
-.certificate-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.cert-card {
-  background: white;
-  border-radius: 15px;
+/* 3. RESPONSIVE STAGE LAYOUT */
+.stage-layout {
+  display: flex;
+  flex: 1;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-  margin: 15px;
+  flex-direction: column; /* Mobile first: stacked */
+  padding: 10px;
+  gap: 15px;
+}
+
+.rail-style {
+  flex: 0 0 auto;
+  background: white;
+  border-radius: 20px;
+  border: 2px solid var(--border-colour);
   padding: 15px;
 }
 
-.cert-card:hover { transform: translateY(-8px); }
-
-.cert-preview img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+.viewport-style {
+  flex: 1;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  background: white;
+  border-radius: 20px;
+  border: 2px solid var(--border-colour);
+  padding: 20px;
+  /* Pronounced Shadow */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); 
+  margin: 0; /* Handled by parent gap/padding */
 }
 
-.btn-view, .btn-download {
-  padding: 10px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.75rem;
-  font-weight: 400;
-  display: inline-block;
+/* DESKTOP REFINEMENT */
+@media (min-width: 768px) {
+  .stage-layout {
+    flex-direction: row; /* Side-by-side */
+    padding: 0 20px 20px 20px; /* Top gap is 0 */
+    gap: 20px;
+  }
+
+  .rail-style {
+    flex: 0 0 250px;
+    height: 100%;
+  }
+
+  .viewport-style {
+    height: 100%;
+  }
 }
 
-.btn-download { background: var(--accent-blue); color: white; }
-
-/* 6. ANIMATIONS */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+/* 4. ANIMATIONS */
 .fade-in {
   animation: fadeIn 0.4s ease-out forwards;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .middle-wrapper { flex-direction: column; }
-  .sidebar-style { 
-    flex: none; 
-    margin: 10px; 
-    height: auto; 
-    max-height: 200px; 
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
