@@ -207,9 +207,9 @@ html, body {
 
 .cert-actions {
  display: flex;
- gap: 12px;
+ gap: 4px;
  justify-content: center;
- background: var(--bg);
+ background: white;
 }
 
 
