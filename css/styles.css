@@ -50,22 +50,33 @@ html, body {
 }
 
 /* content area */
-.viewport-style {
+/* Outer rounded container (clips scrollbar) */
+.viewport-wrapper {
   flex: 1;
-  height: auto;
   display: flex;
-  flex-direction: column;
+
   background: white;
   border-radius: 20px;
   border: 2px solid var(--border-colour);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
   margin: 20px;
-  /* 
-     Crucial: Set overflow on the child or use a nested scroller 
-     to keep the scrollbar inside the rounded corners.
-  */
-  overflow-y: auto; 
+
+  overflow: hidden; /* ✅ clips scrollbar to rounded corners */
+}
+
+
+/* Inner scroll container */
+.viewport-style {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto; /* ✅ scrollbar lives here now */
+
   padding: 20px;
+  background: white;
+  scrollbar-gutter: stable;
 }
 
 /* 4. FOOTER FIX */
