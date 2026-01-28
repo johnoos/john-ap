@@ -5,21 +5,65 @@
   --accent-blue: #007bff;
 }
 
-/* VIEWPORT */
+/* 1. LOCK VIEWPORT & FORCE FLEX COLUMN */
 html, body {
   height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
-  overflow: hidden; 
-  background: var(--bg);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden; /* Prevents double scrollbars */
+  display: flex;
+  flex-direction: column;
 }
 
 .outer-wrapper {
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+/* 2. THE STAGE (Middle Section) */
+.stage-layout {
+  flex: 1; /* Fills all space between header and footer */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Ensures it doesn't push the footer down */
+  background: var(--bg);
+  /* Padding creates "air" so corners/shadows aren't clipped */
+  padding: 20px; 
+}
+
+/* 3. THE VIEWPORT (Content Area) */
+.viewport-style {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 20px;
+  border: 2px solid var(--border-colour);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  /* 
+     Crucial: Set overflow on the child or use a nested scroller 
+     to keep the scrollbar inside the rounded corners.
+  */
+  overflow-y: auto; 
+  padding: 20px;
+}
+
+/* 4. FOOTER FIX */
+.dock-style {
+  flex-shrink: 0; /* Prevents the footer from getting squashed */
+  height: 80px;
+  background: var(--header-footer-bg);
+  z-index: 10;
+}
+
+/* DESKTOP REFINEMENT */
+@media (min-width: 768px) {
+  .stage-layout {
+    /* Set top padding to 0 for flush look, keep bottom for visible corners */
+    padding: 0 20px 20px 20px; 
+  }
 }
 
 /* HEADER & FOOTER */
@@ -36,61 +80,6 @@ html, body {
   z-index: 10;
 }
 
-/* footer */
-.dock-style {   
-  height: 80px;
-  background: var(--header-footer-bg);
-  flex-shrink: 0;
-}
-
-/* responsive stage layout - entire floorspace between header and footer 
-   - the invisible grid holding everything in the middle                    */
-/* THE MIDDLE WRAPPER */
-.stage-layout {
-  display: flex;
-  flex: 1;
-  /* 1. CRITICAL: Allow the parent to show overflow shadows/borders */
-  overflow: visible; 
-  background: var(--bg);
-  flex-direction: column;
-  /* 2. Create space for the bottom rounded corners to be seen */
-  padding: 20px; 
-  gap: 20px;
-}
-
-/* THE SCROLLABLE CONTENT */
-.viewport-style {
-  scrollbar-gutter: stable both-edges;
-  flex: 1;
-  /* 3. Standard scrolling */
-  overflow-y: auto; 
-  scroll-behavior: smooth;
-  
-  background: white;
-  border-radius: 20px;
-  border: 2px solid var(--border-colour);
-  padding: 20px;
-  
-  /* 4. Pronounced shadow (will now be visible thanks to overflow:visible above) */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
-  
-  /* Ensure it doesn't grow infinitely */
-  min-height: 0; 
-}
-
-/* DESKTOP REFINEMENT */
-@media (min-width: 768px) {
-  .stage-layout {
-    flex-direction: row;
-    /* 
-       TOP: 0 (keep flush with header)
-       SIDES/BOTTOM: 20px (keep corners visible) 
-    */
-    padding: 0 20px 20px 20px; 
-    gap: 20px;
-  }
-}
-
 .rail-style {
   flex: 0 0 250px;
   background: white;
@@ -100,31 +89,6 @@ html, body {
   /* Ensure it also has a bottom margin so the corners don't touch the footer */
   margin: 0 0 20px 20px; 
   overflow-y: auto;
-}
-
-/* 5. The Content Buffer */
-/* This ensures that whatever you load (like cert-cards) doesn't sit flush 
-   against the bottom of the viewport, keeping the curves visible. */
-#content-viewport > div {
-  padding-bottom: 40px; 
-}
-
-/* DESKTOP REFINEMENT */
-@media (min-width: 768px) {
-  .stage-layout {
-    flex-direction: row; /* Side-by-side */
-    padding: 0 20px 20px 20px; /* Top gap is 0 */
-    gap: 20px;
-  }
-
-  .rail-style {
-    flex: 0 0 250px;
-    height: 100%;
-  }
-
-  .viewport-style {
-    height: 100%;
-  }
 }
 
 /* 4. ANIMATIONS */
