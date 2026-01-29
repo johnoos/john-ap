@@ -18,30 +18,29 @@ html, body {
 }
 
 body {
+  /* 1. CONTROL COLOUR INDEPENDENTLY */
+  /* Use RGBA to set your tint colour and its specific faintness (e.g., 0.1) */
+  background-color: rgba(370, 700, 700, 0.1); 
   margin: 0;
   padding: 0;
-  /* Ensure content stays above the background */
-  position: relative; 
   min-height: 100vh;
+  position: relative;
 }
 
 body::before {
   content: "";
-  position: fixed; /* Keeps the watermark in place while scrolling */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Puts the image behind all content */
-  
-  /* Background Image Settings */
-  background-image: url("/resources/artwork/graduation-cap.jpeg");
-  background-size: cover; /* Stretches image to fill the screen */
-  background-position: center;
-  background-repeat: no-repeat;
-  
-  /* Watermark Effect (Transparency) */
-  opacity: 0.08; /* Adjust between 0.0 and 1.0 for the desired fade */
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1;
+
+  /* 2. CONTROL IMAGE INDEPENDENTLY */
+  background-image: url('/resource/artwork/graduation-cap.jpeg');
+  background-size: cover;
+  opacity: 0.1; /* Set image faintness here */
+
+  /* 3. THE TINT MAGIC */
+  /* 'Luminosity' or 'Multiply' lets the body color bleed through the image */
+  background-blend-mode: luminosity; 
 }
 
 .outer-wrapper {
