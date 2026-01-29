@@ -5,7 +5,7 @@
   --download-button-blue: hsl(211, 71%, 68%);
 }
   
-/* 1. LOCK VIEWPORT & FORCE FLEX COLUMN */
+/* LOCK VIEWPORT & FORCE FLEX COLUMN */
 html, body {
   height: 100vh;
   width: 100vw;
@@ -18,7 +18,7 @@ html, body {
 }
 
 body {
-  /* 1. CONTROL COLOUR INDEPENDENTLY */
+  /* CONTROL COLOUR INDEPENDENTLY */
   /* Use RGBA to set your tint colour and its specific faintness (e.g., 0.1) */ 
   min-height: 100vh;
   position: relative;
@@ -34,34 +34,29 @@ body::after {
   background-color: rgba(43%, 70%, 70%, 0.15);
 }
 
-/* LAYER 2: The Image (Middle) 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  z-index: -1; /* Sits above the tint 
-  
-  background-image: url('/resources/artwork/graduation-cap.jpeg');
-  background-size: cover;
-  background-position: center;
-
-  /* APPLY FILTER ONLY HERE 
-  /* This washes out the image before it sits on the blue tint 
-  filter: brightness(1.8) contrast(0.4) grayscale(0.5);
-  
-  /* Use 'multiply' to let the bottom blue tint bleed through the filtered image 
-  background-blend-mode: multiply; 
-  opacity: 0.6; 
-} */
-
-.outer-wrapper {
+.outer-wrapper-style {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-/* middle wrapper */
-.stage-layout {
+.logo {width: 110px; margin: v0 auto .8rem; display: block; border-radius: 8px}
+
+.top-panel-style {
+  /* background: var(--bg-color); */
+  height: 120px;
+  margin: 0;
+  Padding: 0;
+  box-sizing: border-box; /* Ensures padding doesn't add to the total height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+/* middle wrapper style */
+.middle-wrapper-style {
   flex: 1; /* Fills all space between header and footer */
   display: flex;
   flex-direction: row;
@@ -71,19 +66,17 @@ body::before {
   align-items: stretch;
 }
 
-.sidebar-wrapper {
+.sidebar-wrapper-style {
   flex: 1;
   display: flex;
   background: white;
-  /* border surrounds both wrapper and viewport */
   border-radius: 20px;
   border: 2px solid var(--border-colour);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   margin: 20px;
   overflow: hidden; /* ✅ clips scrollbar to rounded corners */
 
-/* sidebar */
-.sidebar-style {
+.sidebar-panel-style {
   flex: 0 0 250px;
   background: white;
   /* border-radius: 20px; */
@@ -95,7 +88,7 @@ body::before {
   height: auto;     /* don’t lock height */
 }
 
-.sidebar-style a { 
+.sidebar-panel-style a { 
  color: #000000 !important;
  text-decoration: none;
  font-size: 1.0rem;       /* Matches sidebar container size */
@@ -103,15 +96,15 @@ body::before {
 }
 
 /* Removes bullets and default browser indentation */
-.sidebar-style ul {
+.sidebar-panel-style ul {
  list-style-type: none; /* Removes the bullets */
  padding: 0;           /* Removes default left padding */
  text-align: ;
- margin: 15px;      /* Increases spacing around the sidebar */
+ margin: 15px;      /* Increases spacing around the items */
  flex: 0 0 260px;   /* Keep original width */
 }
 
-.sidebar-style li {
+.sidebar-panel-style li {
  line-height: 2.0;
 }
 
@@ -142,11 +135,11 @@ body::before {
 
 /* content area */
 /* Outer rounded container (clips scrollbar) */
-.viewport-wrapper {
+.content-wrapper-style {
   flex: 1;
   display: flex;
   background: white;
-  /* border surrounds both wrapper and viewport */
+  /* border surrounds both wrapper and content panel */
   border-radius: 20px;
   border: 2px solid var(--border-colour);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -155,7 +148,7 @@ body::before {
 }
 
 /* Inner scroll container */
-.viewport-style {
+.content-panel-style {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -167,7 +160,7 @@ body::before {
 }
 
 /* FOOTER */
-.dock-style {
+.bottom-panel-style {
   /* background: var(--bg-color); */
   margin: 0;
   Padding: 0;
@@ -179,33 +172,10 @@ body::before {
 
 /* DESKTOP REFINEMENT */
 @media (min-width: 768px) {
-  .stage-layout {
+  .middle-wrapper-style {
     /* Set top padding to 0 for flush look, keep bottom for visible corners */
     padding: 0 20px 20px 20px; 
   }
-}
-
-/* HEADER & FOOTER */
-.logo {width: 110px; margin: v0 auto .8rem; display: block; border-radius: 8px}
-
-/* header */
-.panel-style {
-  /* background: var(--bg-color); */
-  height: 120px;
-  /*  
-  background-image: url("/resources/artwork/top-left.png"); /* Update URL to your image file 
-  background-repeat: no-repeat;
-  background-position: top left; /* Aligns the top cap to the top of the header 
-  background-size: auto 120px; /* Ensures the image covers the width while maintaining aspect ratio 
-  /* Add padding for content here */
-  margin: 0;
-  Padding: 0;
-  box-sizing: border-box; /* Ensures padding doesn't add to the total height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  z-index: 10;
 }
 
 /* ANIMATIONS */
@@ -295,7 +265,7 @@ body::before {
 /* Responsive adjustments for mobile */
 @media screen and (max-width: 768px) {
     /* Stack the layout vertically */
-    .stage-layout {
+    .middle-wrapper-style {
         flex-direction: column;
     }
 
@@ -330,4 +300,3 @@ body::before {
         background-color: transparent;
     }
 }
-

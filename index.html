@@ -7,22 +7,20 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="outer-wrapper">
-        <header id="top-panel" class="panel-style"></header>
-
-        <div id="center-stage" class="stage-layout">
-            <div class="sidebar-wrapper">
-                <aside id="nav-sidebar" class="sidebar-style"></aside> 
+    <div class="outer-wrapper-style">
+        <header id="top-panel-container" class="top-panel-style"></header>
+        <div id="center-stage" class="middle-wrapper-style">
+            <div class="sidebar-wrapper-style">
+                <aside id="sidebar-panel-container" class="sidebar-panel-style"></aside> 
             </div>
             <!-- Semantic <main> used for SEO, but logic uses custom ID -->
-            <div class="viewport-wrapper">
-                <main id="content-viewport" class="viewport-style">
+            <div class="content-wrapper-style">
+                <main id="content-panel-container" class="content-panel-style">
                     <p>Loading...</p>
                 </main>
             </div>
         </div>
-
-        <footer id="bottom-dock" class="dock-style"></footer>
+        <footer id="bottom-panel-container" class="bottom-panel-style"></footer>
     </div>
 
     <script>
@@ -37,7 +35,7 @@
         
                 container.innerHTML = html;
 
-                if (containerId === 'content-viewport') {
+                if (containerId === 'content-panel-container') {
                     container.scrollTop = 0;
                 }
 
@@ -45,7 +43,7 @@
                     container.classList.add('fade-in');
                 }, 10);
 
-                if (containerId === 'nav-sidebar') {
+                if (containerId === 'sidebar-panel-container') {
                     highlightLink('certificates');
                 }
             } catch (err) {
@@ -54,7 +52,7 @@
         }
 
         function navigate(page) {
-            loadContent(`body-pages/${page}.html`, 'content-viewport');
+            loadContent(`body-pages/${page}.html`, 'content-panel-container');
             highlightLink(page); 
             window.scrollTo(0, 0); 
         }
@@ -69,10 +67,11 @@
         }
 
         window.onload = () => {
-            loadContent('sidebar-menu.html', 'nav-sidebar');
-            loadContent('header.html', 'top-panel');
-            loadContent('body-pages/certificates.html', 'content-viewport');
-            loadContent('footer.html', 'bottom-dock');
+        
+            loadContent('header.html', 'top-panel-container');
+            loadContent('sidebar-menu.html', 'sidebar-panel-container');
+            loadContent('body-pages/certificates.html', 'content-panel-container');
+            loadContent('footer.html', 'bottom-panel-container');
         };
     </script>
 </body>
