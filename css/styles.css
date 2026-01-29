@@ -1,5 +1,5 @@
 :root {
-  --bg-color: rgba(34, 63, 106, 0.15);
+  --bg-color: rgba(22, 97, 119, 0.1);
   --border-color: hsl(0, 0%, 18%);
   --view-button-gray: hsl(0, 0%, 60%);
   --download-button-blue: hsl(211, 71%, 68%);
@@ -60,7 +60,7 @@ body::after {
 .middle-wrapper-style {
   flex: 1; /* Fills all space between header and footer */
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   overflow: hidden; /* Ensures it doesn't push the footer down */
   /* background: var(--bg); */
   gap: 20px;
@@ -82,7 +82,7 @@ body::after {
   /* flex: 0 0 250px; */
   background: white;
   overflow-y: auto; /* ✅ scrollbar lives here now */
-  margin: 10px;
+  margin: 5px;
   scrollbar-gutter: stable;
   height: auto;     /* don’t lock height */
 }
@@ -97,9 +97,9 @@ body::after {
 .sidebar-panel-style ul {
  list-style-type: none; /* Removes the bullets */
  padding: 0;           /* Removes default left padding */
- text-align: ;
+ text-align: left;
  margin: 15px;      /* Increases spacing around the items */
- flex: 0 0 260px;   /* Keep original width */
+ flex: 0 0 230px;   /* Keep original width */
 }
 
 .sidebar-panel-style li {
@@ -133,9 +133,10 @@ body::after {
 
 /* content area */
 .content-wrapper-style {
-  flex: 1;
+  /* flex: 1; */
   display: flex;
   background: white;
+  flex: 1 1 auto
   border-radius: 20px;
   border: 2px solid var(--border-color);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
