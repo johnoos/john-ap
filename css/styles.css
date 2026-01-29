@@ -36,7 +36,7 @@ body::before {
   z-index: -1; /* Puts the image behind all content */
   
   /* Background Image Settings */
-  background-image: url("/resources/artwork/graduation-cap.jpg");
+  background-image: url("/resources/artwork/graduation-cap.png");
   background-size: cover; /* Stretches image to fill the screen */
   background-position: center;
   background-repeat: no-repeat;
