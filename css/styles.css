@@ -1,6 +1,6 @@
 :root {
   --bg-color: rgba(34, 63, 106, 0.15);
-  --border-colour: hsl(0, 0%, 18%);
+  --border-color: hsl(0, 0%, 18%);
   --view-button-gray: hsl(0, 0%, 60%);
   --download-button-blue: hsl(211, 71%, 68%);
 }
@@ -72,7 +72,7 @@ body::after {
   background: white;
   flex: 0 0 250px;
   border-radius: 20px;
-  border: 2px solid var(--border-colour); 
+  border: 2px solid var(--border-color); 
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   margin: 20px;
   overflow: hidden; /* ✅ clips scrollbar to rounded corners */
@@ -132,16 +132,14 @@ body::after {
 }
 
 /* content area */
-/* Outer rounded container (clips scrollbar) */
 .content-wrapper-style {
   flex: 1;
   display: flex;
   background: white;
-  /* border surrounds both wrapper and content panel */
   border-radius: 20px;
-  border: 2px solid var(--border-colour);
+  border: 2px solid var(--border-color);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  margin: 20px;
+  margin: 0 20px 20px 20px;
   overflow: hidden; /* ✅ clips scrollbar to rounded corners */
 }
 
@@ -154,7 +152,6 @@ body::after {
   margin: 20px;
   background: white;
   scrollbar-gutter: stable;
-  /* border-radius: 15px; */
 }
 
 /* FOOTER */
