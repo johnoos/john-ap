@@ -80,7 +80,7 @@ body::after {
 .sidebar-panel-style {
   /* flex: 0 0 250px; */
   background: white;
-  padding: 15px;
+  padding: 20px;
   overflow-y: auto; /* ✅ scrollbar lives here now */
   /* margin: 20px; */
   scrollbar-gutter: stable;
