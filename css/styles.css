@@ -35,13 +35,13 @@ body::before {
   z-index: -1; /* Puts the image behind all content */
   
   /* Background Image Settings */
-  background-image: url("/resources/artwork/graduation-cap.png");
+  background-image: url("/resources/artwork/graduation-cap.jpeg");
   background-size: cover; /* Stretches image to fill the screen */
   background-position: center;
   background-repeat: no-repeat;
   
   /* Watermark Effect (Transparency) */
-  opacity: 0.2; /* Adjust between 0.0 and 1.0 for the desired fade */
+  opacity: 0.08; /* Adjust between 0.0 and 1.0 for the desired fade */
 }
 
 .outer-wrapper {
