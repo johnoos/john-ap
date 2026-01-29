@@ -70,6 +70,7 @@ body::after {
   flex: 1;
   display: flex;
   background: white;
+  flex: 0 0 250px;
   border-radius: 20px;
   border: 2px solid var(--border-colour);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -83,7 +84,6 @@ body::after {
   padding: 15px;
   overflow-y: auto; /* ✅ scrollbar lives here now */
   margin: 20px;
-  background: white;
   scrollbar-gutter: stable;
   height: auto;     /* don’t lock height */
 }
