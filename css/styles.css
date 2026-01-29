@@ -1,5 +1,5 @@
 :root {
-  /* --bg-color: hsl(370, 700, 700);  apply opacity */
+  --bg-color: rgba(34, 63, 106, 0.15);
   --border-colour: hsl(0, 0%, 18%);
   --view-button-gray: hsl(0, 0%, 60%);
   --download-button-blue: hsl(211, 71%, 68%);
@@ -23,14 +23,6 @@ body {
   min-height: 100vh;
   position: relative;
   background: transparent;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  position: relative;
-  /* Keep background transparent here */
-  background: transparent; 
 }
 
 /* LAYER 1: The Tint (Bottom) */
