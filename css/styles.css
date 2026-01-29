@@ -42,7 +42,7 @@ body::before {
   background-repeat: no-repeat;
   
   /* Watermark Effect (Transparency) */
-  opacity: 0.05; /* Adjust between 0.0 and 1.0 for the desired fade */
+  opacity: 0.2; /* Adjust between 0.0 and 1.0 for the desired fade */
 }
 
 .outer-wrapper {
