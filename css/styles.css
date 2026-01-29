@@ -20,7 +20,7 @@ html, body {
 body {
   /* 1. CONTROL COLOUR INDEPENDENTLY */
   /* Use RGBA to set your tint colour and its specific faintness (e.g., 0.1) */
-  background-color: rgba(370, 700, 700, 0.1); 
+  background-color: rgba(370, 700, 700, 0.5); 
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -36,7 +36,7 @@ body::before {
   /* 2. CONTROL IMAGE INDEPENDENTLY */
   background-image: url('/resource/artwork/graduation-cap.jpeg');
   background-size: cover;
-  opacity: 0.1; /* Set image faintness here */
+  opacity: 0.5; /* Set image faintness here */
 
   /* 3. THE TINT MAGIC */
   /* 'Luminosity' or 'Multiply' lets the body color bleed through the image */
