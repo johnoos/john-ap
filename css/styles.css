@@ -67,18 +67,18 @@ body::after {
 }
 
 .sidebar-wrapper-style {
-  flex: 1;
+  /*  flex: 1; */
   display: flex;
   background: white;
   flex: 0 0 250px;
   border-radius: 20px;
-  border: 2px solid var(--border-colour);
+  border: 2px solid var(--border-colour); 
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  margin: 20px;
+  /* margin: 20px; */
   overflow: hidden; /* ✅ clips scrollbar to rounded corners */
 
 .sidebar-panel-style {
-  flex: 0 0 250px;
+  /* flex: 0 0 250px; */
   background: white;
   /* border-radius: 20px; */
   padding: 15px;
