@@ -297,3 +297,67 @@ body::after {
         background-color: transparent;
     }
 }
+
+/* --- MOBILE DRAWER SYSTEM --- */
+
+@media screen and (max-width: 768px) {
+    /* 1. Allow the body to scroll if needed, but keep outer wrapper constrained */
+    html, body {
+        overflow: auto; 
+    }
+
+    /* 2. Stack the layout */
+    .middle-wrapper-style {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* 3. Transform Sidebar into an Off-Canvas Drawer */
+    .sidebar-wrapper-style {
+        position: fixed;
+        top: 0;
+        left: -300px; /* Hidden by default */
+        width: 250px;
+        height: 100vh;
+        margin: 0;
+        z-index: 999;
+        transition: left 0.3s ease-in-out;
+        border-radius: 0 20px 20px 0; /* Rounded only on the right */
+    }
+
+    /* 4. This class is toggled by the JS toggleMenu() function */
+    .sidebar-wrapper-style.open {
+        left: 0;
+    }
+
+    /* 5. Adjust Content Area for mobile */
+    .content-wrapper-style {
+        margin: 10px; /* Give it some breathing room */
+        height: calc(100vh - 220px); /* Adjust based on your header/footer height */
+    }
+
+    /* 6. Grid adjustment for certificates */
+    .certificate-grid {
+        grid-template-columns: 1fr; /* Single column on phones */
+        padding: 1rem;
+    }
+}
+
+/* --- MENU BUTTON STYLE --- */
+/* Add this so the button only shows on mobile */
+.menu-toggle {
+    display: none;
+    padding: 10px 20px;
+    background: var(--download-button-blue);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show only on mobile */
+    }
+}
