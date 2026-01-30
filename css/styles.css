@@ -137,11 +137,11 @@ body::after {
   /* flex: 1; */
   display: flex;
   background: white;
-  flex: 1 1 auto
+  flex: 1 1 auto;
   border-radius: 20px;
   border: 2px solid var(--border-color);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  margin: 0 20px 20px 20px;
+  margin: 20px 20px 20px 0;
   overflow: hidden; /* ✅ clips scrollbar to rounded corners */
 }
 
