@@ -72,7 +72,12 @@
         function highlightLink(pageName) {
             document.querySelectorAll('.sidebar-item-style').forEach(link => {
                 link.classList.remove('active');
-                if (link.hasAttribute('onclick') && link.getAttribute('onclick').includes(pageName)) {
+        
+                // Match the exact navigate('pageName') pattern to avoid partial matches
+                const exactMatchPattern = `navigate('${pageName}')`;
+                const onclickAttr = link.getAttribute('onclick');
+        
+                if (onclickAttr && onclickAttr.includes(exactMatchPattern)) {
                     link.classList.add('active');
                 }
             });
