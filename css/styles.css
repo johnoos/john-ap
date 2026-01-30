@@ -360,8 +360,9 @@ body::after {
     .menu-toggle {
         display: block; /* Show only on mobile */
     }
-    div {
-    line-height: 1.4;   /* Fixes the "too little" space in wrapped text */
-    margin-bottom: 5px; /* Fixes the "too much" space between elements */
+    
+    .title-lines {
+      line-height: 1.4; /* fixes "too little" issue */ 
+      margin-bottom: 5px; /* fixes "too much" issue */
   }
 }
