@@ -25,65 +25,65 @@
 
     <script>
         async function loadContent(url, containerId) {
-    try {
-        const container = document.getElementById(containerId);
-        container.classList.remove('fade-in');
+            try {
+                const container = document.getElementById(containerId);
+                container.classList.remove('fade-in');
 
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('Failed to load ' + url);
-        const html = await response.text();
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Failed to load ' + url);
+                const html = await response.text();
 
-        container.innerHTML = html;
+                container.innerHTML = html;
 
-        if (containerId === 'content-panel-container') {
-            container.scrollTop = 0;
+                if (containerId === 'content-panel-container') {
+                    container.scrollTop = 0;
+                }
+
+                setTimeout(() => {
+                    container.classList.add('fade-in');
+                }, 10);
+
+                if (containerId === 'sidebar-panel-container') {
+                    highlightLink('certificates');
+                }
+            } catch (err) {
+                console.error(err);
+            }
         }
 
-        setTimeout(() => {
-            container.classList.add('fade-in');
-        }, 10);
-
-        if (containerId === 'sidebar-panel-container') {
-            highlightLink('certificates');
+        // MOBILE LOGIC: Toggle the sidebar visibility
+        function toggleMenu() {
+            const sidebar = document.querySelector('.sidebar-wrapper-style');
+            sidebar.classList.toggle('open');
         }
-    } catch (err) {
-        console.error(err);
-    }
-}
 
-// MOBILE LOGIC: Toggle the sidebar visibility
-function toggleMenu() {
-    const sidebar = document.querySelector('.sidebar-wrapper-style');
-    sidebar.classList.toggle('open');
-}
-
-function navigate(page) {
-    loadContent(`body-pages/${page}.html`, 'content-panel-container');
-    highlightLink(page); 
+        function navigate(page) {
+            loadContent(`body-pages/${page}.html`, 'content-panel-container');
+            highlightLink(page); 
     
-    // MOBILE LOGIC: Close menu and scroll to top after selection
-    const sidebar = document.querySelector('.sidebar-wrapper-style');
-    if (sidebar.classList.contains('open')) {
-        sidebar.classList.remove('open');
-    }
-    window.scrollTo(0, 0); 
-}
-
-function highlightLink(pageName) {
-    document.querySelectorAll('.sidebar-item-style').forEach(link => {
-        link.classList.remove('active');
-        if (link.hasAttribute('onclick') && link.getAttribute('onclick').includes(pageName)) {
-            link.classList.add('active');
+            // MOBILE LOGIC: Close menu and scroll to top after selection
+            const sidebar = document.querySelector('.sidebar-wrapper-style');
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+            }
+            window.scrollTo(0, 0); 
         }
-    });
-}
 
-window.onload = () => {
-    loadContent('header.html', 'top-panel-container');
-    loadContent('sidebar-menu.html', 'sidebar-panel-container');
-    loadContent('body-pages/certificates.html', 'content-panel-container');
-    loadContent('footer.html', 'bottom-panel-container');
-};
+        function highlightLink(pageName) {
+            document.querySelectorAll('.sidebar-item-style').forEach(link => {
+                link.classList.remove('active');
+                if (link.hasAttribute('onclick') && link.getAttribute('onclick').includes(pageName)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.onload = () => {
+            loadContent('header.html', 'top-panel-container');
+            loadContent('sidebar-menu.html', 'sidebar-panel-container');
+            loadContent('body-pages/certificates.html', 'content-panel-container');
+            loadContent('footer.html', 'bottom-panel-container');
+        };
     </script>
 </body>
 </html>
