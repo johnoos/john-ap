@@ -185,7 +185,7 @@ body::after {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.certificate-grid { 
+.doc-grid { 
  display: grid;
  /* Automatically fits columns based on 300px min-width */
  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -194,7 +194,7 @@ body::after {
  background-color: white;
 }
 
-.cert-card {
+.doc-card {
  background: #dfdfdf;
  border-radius: 12px;
  overflow: hidden;
@@ -204,31 +204,31 @@ body::after {
  flex-direction: column;
 }
 
-.cert-card:hover {
+.doc-card:hover {
  transform: translateY(-8px);
  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-.cert-preview img {
+.doc-preview img {
  width: 100%;
  aspect-ratio: 4 / 3; /* Uniform height for all previews */
  object-fit: cover;
  border-bottom: 1px solid #eee;
 }
 
-.cert-info {
+.doc-info {
  padding: 1.0rem;
  text-align: center;
 }
 
-.cert-info h3 {
+.doc-info h3 {
  padding-top: 0; 
  font-size: 1.0rem;
  margin-bottom: 1rem;
  color: #454545;
 }
 
-.cert-actions {
+.doc-actions {
  display: flex;
  gap: 10px;
  justify-content: center;
@@ -337,7 +337,7 @@ body::after {
     }
 
     /* 6. Grid adjustment for certificates */
-    .certificate-grid {
+    .doc-grid {
         grid-template-columns: 1fr; /* Single column on phones */
         padding: 1rem;
     }
@@ -360,4 +360,8 @@ body::after {
     .menu-toggle {
         display: block; /* Show only on mobile */
     }
+    div {
+    line-height: 1.4;   /* Fixes the "too little" space in wrapped text */
+    margin-bottom: 5px; /* Fixes the "too much" space between elements */
+  }
 }
