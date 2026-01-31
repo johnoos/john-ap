@@ -1,8 +1,8 @@
 :root {
   --bg-color: #073f7c0d; /* final background colour */
   --border-color: hsl(0, 0%, 18%);
-  --view-button-gray: hsl(0, 0%, 60%);
-  --download-button-blue: hsl(211, 71%, 68%);
+  --view-button-gray: hsl(0, 1%, 84%);
+  --download-button-blue: hsla(211, 71%, 68%, 0.333);
 }
   
 /* LOCK VIEWPORT & FORCE FLEX COLUMN */
@@ -247,12 +247,12 @@ body::after {
 
 .btn-view {
  background-color: var(--view-button-gray);
- color: #7f8b94;
+ color: #303538;
 }
 
 .btn-download {
  background-color: var(--download-button-blue);
- color: #688ba9;
+ color: #213a50;
  vertical-align: middle;
 }
 
