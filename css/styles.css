@@ -361,9 +361,7 @@ body::after {
     .menu-toggle {
         display: block; /* Show only on mobile */
     }
-    /* 
     .title-lines {
-      line-height: 1.4; /* fixes "too little" issue 
-      margin-bottom: 5px; /* fixes "too much" issue
+      line-height: 1.2;
   } */
 }
