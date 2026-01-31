@@ -247,12 +247,13 @@ body::after {
 
 .btn-view {
  background-color: var(--view-button-gray);
- color: #3c4247;
+ color: #7f8b94;
 }
 
 .btn-download {
  background-color: var(--download-button-blue);
- color: #3c4247;
+ color: #688ba9;
+ vertical-align: middle;
 }
 
 .btn-view:hover, .btn-download:hover {
