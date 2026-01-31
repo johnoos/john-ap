@@ -41,7 +41,11 @@ body::after {
   background: var(--bg-color);
 }
 
-.logo {width: 110px; margin: v0 auto .8rem; display: block; border-radius: 8px}
+.logo {
+  width: 110px; 
+  display: flex; 
+  justify-content: center; /* Vertical center */
+}
 
 .top-panel-style {
   /* background: var(--bg-color); */
