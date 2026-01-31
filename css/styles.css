@@ -7,7 +7,7 @@
   
 /* LOCK VIEWPORT & FORCE FLEX COLUMN */
 html, body {
-  height: 100svh;
+  height: 95svh;
   width: 100vw;
   margin: 0;
   padding: 0;
@@ -366,7 +366,7 @@ body::after {
         display: block; /* Show only on mobile */
     }
     .title-lines {
-      line-height: 1.1;
+      line-height: 1.05;
     }
 }
 
