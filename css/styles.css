@@ -362,6 +362,6 @@ body::after {
         display: block; /* Show only on mobile */
     }
     .title-lines {
-      line-height: 1.2;
+      line-height: 1.1;
   } */
 }
